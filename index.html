@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Green Street Hideaway – Šempeter v Savinjski Dolini</title>
+  <meta name="description" content="A lovingly renovated apartment in the heart of the Lower Savinja Valley. 2 bedrooms, 2 bathrooms, private garden & terrace with mountain views. Book on Booking.com.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #FAF7F2;
+      --warm-white: #FFF9F4;
+      --forest:     #2D3A2E;
+      --sage:       #5A7A5C;
+      --sage-light: #8FAE90;
+      --terra:      #B87048;
+      --terra-light:#D4956E;
+      --brown:      #3A2E26;
+      --beige:      #E8DDD0;
+      --beige-dark: #D4C5B0;
+      --gold:       #C9A96E;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.7;
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(200, 185, 165, 0.3);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(58,46,38,0.08); }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--forest);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .nav-logo img {
+      height: 44px; width: 44px;
+      border-radius: 50%; object-fit: cover;
+    }
+    .nav-logo span { color: var(--terra); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--brown);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+    .nav-book {
+      background: var(--forest); color: #fff !important;
+      padding: 0.55rem 1.4rem; border-radius: 50px;
+      transition: background 0.2s !important;
+    }
+    .nav-book:hover { background: var(--terra) !important; color: #fff !important; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 70px;
+    }
+    .hero-text {
+      padding: 5rem 4rem 5rem 6rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--terra);
+      margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px;
+      background: var(--terra);
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.15;
+      color: var(--forest);
+      margin-bottom: 1.8rem;
+    }
+    .hero-title em { color: var(--terra); font-style: italic; }
+    .hero-subtitle {
+      font-size: 1.05rem; color: #6B5E54;
+      max-width: 420px; margin-bottom: 2.8rem;
+      font-weight: 300; line-height: 1.8;
+    }
+    .hero-cta-group { display: flex; gap: 1rem; align-items: center; }
+    .btn-primary {
+      background: var(--forest); color: #fff;
+      padding: 0.9rem 2rem; border-radius: 50px;
+      text-decoration: none; font-size: 0.9rem; font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: background 0.25s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--terra); transform: translateY(-2px); }
+    .btn-secondary {
+      color: var(--forest); font-size: 0.9rem; font-weight: 500;
+      text-decoration: none; letter-spacing: 0.04em;
+      display: flex; align-items: center; gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--terra); }
+    .btn-secondary::after { content: '→'; font-size: 1.1rem; }
+
+    .hero-image {
+      height: 100vh;
+      position: relative; overflow: hidden;
+    }
+    .hero-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-badge {
+      position: absolute; bottom: 2.5rem; left: 2rem;
+      background: rgba(250,247,242,0.95); backdrop-filter: blur(8px);
+      border-radius: 16px; padding: 1rem 1.4rem;
+      display: flex; align-items: center; gap: 1rem;
+      box-shadow: 0 8px 32px rgba(58,46,38,0.12);
+    }
+    .badge-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--forest);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .badge-text { font-size: 0.8rem; }
+    .badge-text strong { display: block; color: var(--forest); font-size: 0.95rem; }
+
+    /* ─── SECTION COMMON ─── */
+    section { padding: 6rem 6rem; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--terra);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 28px; height: 1px;
+      background: var(--terra);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      color: var(--forest); line-height: 1.25;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--warm-white);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .about-images {
+      position: relative; height: 520px;
+    }
+    .about-img-main, .about-img-accent {
+      position: absolute; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(58,46,38,0.15);
+    }
+    .about-img-main {
+      width: 80%; height: 85%;
+      top: 0; left: 0;
+    }
+    .about-img-accent {
+      width: 55%; height: 50%;
+      bottom: 0; right: 0;
+      border: 4px solid var(--warm-white);
+    }
+    .about-img-main img,
+    .about-img-accent img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .about-text p {
+      color: #6B5E54; margin-bottom: 1.2rem; font-size: 1.02rem;
+      font-weight: 300;
+    }
+    .fun-fact {
+      background: var(--cream); border-left: 3px solid var(--terra);
+      border-radius: 0 12px 12px 0; padding: 1rem 1.2rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.92rem; color: var(--forest); font-weight: 400;
+      font-style: italic;
+    }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .stat-card {
+      background: var(--cream); border-radius: 16px;
+      padding: 1.4rem; text-align: center;
+      border: 1px solid var(--beige);
+    }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; color: var(--terra); font-weight: 600;
+    }
+    .stat-label { font-size: 0.8rem; color: #8A7A70; margin-top: 0.2rem; }
+
+    /* ─── GALLERY ─── */
+    #gallery { background: var(--cream); }
+    .gallery-intro { max-width: 540px; margin-bottom: 3.5rem; }
+    .gallery-intro p { color: #6B5E54; font-weight: 300; font-size: 1.02rem; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(3, 220px);
+      gap: 12px;
+    }
+    .gallery-item {
+      border-radius: 14px; overflow: hidden;
+      cursor: pointer; position: relative;
+    }
+    .gallery-item:nth-child(1) { grid-column: 1/6; grid-row: 1/3; }
+    .gallery-item:nth-child(2) { grid-column: 6/9; grid-row: 1/2; }
+    .gallery-item:nth-child(3) { grid-column: 9/13; grid-row: 1/2; }
+    .gallery-item:nth-child(4) { grid-column: 6/10; grid-row: 2/3; }
+    .gallery-item:nth-child(5) { grid-column: 10/13; grid-row: 2/3; }
+    .gallery-item:nth-child(6) { grid-column: 1/5; grid-row: 3/4; }
+    .gallery-item:nth-child(7) { grid-column: 5/9; grid-row: 3/4; }
+    .gallery-item:nth-child(8) { grid-column: 9/13; grid-row: 3/4; }
+
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-note {
+      text-align: center; margin-top: 2rem;
+      font-size: 0.85rem; color: #9A8A80;
+      font-style: italic;
+    }
+
+    /* ─── AMENITIES ─── */
+    #amenities {
+      background: var(--forest);
+      color: var(--cream);
+    }
+    #amenities .section-label { color: var(--gold); }
+    #amenities .section-label::before { background: var(--gold); }
+    #amenities .section-title { color: var(--warm-white); }
+    .amenities-intro { color: rgba(250,247,242,0.7); font-weight: 300; max-width: 500px; margin-bottom: 3.5rem; font-size: 1.02rem; }
+
+    .amenities-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+    }
+    .amenity-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px; padding: 1.8rem 1.5rem;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .amenity-card:hover {
+      background: rgba(255,255,255,0.1); transform: translateY(-4px);
+    }
+    .amenity-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .amenity-name {
+      font-weight: 600; font-size: 0.95rem;
+      color: var(--warm-white); margin-bottom: 0.4rem;
+    }
+    .amenity-desc { font-size: 0.82rem; color: rgba(250,247,242,0.55); line-height: 1.5; }
+
+    /* ─── LOCATION ─── */
+    #location {
+      background: var(--cream);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: center;
+    }
+    .location-text p { color: #6B5E54; font-weight: 300; font-size: 1.02rem; margin-bottom: 1.2rem; }
+    .location-highlights { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .location-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem 1.2rem; background: var(--warm-white);
+      border-radius: 14px; border: 1px solid var(--beige);
+    }
+    .location-item-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .location-item-text strong {
+      display: block; color: var(--forest); font-size: 0.92rem; margin-bottom: 0.15rem;
+    }
+    .location-item-text span { font-size: 0.82rem; color: #8A7A70; }
+
+    .map-container {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(58,46,38,0.12);
+      height: 460px;
+    }
+    .map-container iframe {
+      width: 100%; height: 100%; border: none; display: block;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--warm-white);
+      text-align: center;
+    }
+    #contact .section-label { justify-content: center; }
+    #contact .section-label::before { display: none; }
+    #contact .section-title { max-width: 600px; margin: 0 auto 1.2rem; }
+    #contact .section-subtitle {
+      color: #6B5E54; font-weight: 300; font-size: 1.02rem;
+      max-width: 480px; margin: 0 auto 3.5rem;
+    }
+    .contact-cards {
+      display: flex; gap: 2rem; justify-content: center;
+      flex-wrap: wrap;
+    }
+    .contact-card {
+      background: var(--cream); border: 1px solid var(--beige);
+      border-radius: 24px; padding: 2.5rem 2rem;
+      width: 280px; text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .contact-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(58,46,38,0.1);
+    }
+    .contact-card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .contact-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; color: var(--forest); margin-bottom: 0.5rem;
+    }
+    .contact-card p {
+      font-size: 0.85rem; color: #8A7A70; margin-bottom: 1.5rem; font-weight: 300;
+    }
+    .contact-card a.card-btn {
+      display: inline-block;
+      background: var(--forest); color: #fff;
+      padding: 0.7rem 1.6rem; border-radius: 50px;
+      text-decoration: none; font-size: 0.85rem; font-weight: 500;
+      transition: background 0.2s;
+    }
+    .contact-card a.card-btn:hover { background: var(--terra); }
+    .contact-card.booking a.card-btn { background: #003580; }
+    .contact-card.booking a.card-btn:hover { background: var(--terra); }
+
+    .address-strip {
+      margin-top: 3rem;
+      padding: 1.2rem 2rem;
+      background: var(--cream);
+      border: 1px solid var(--beige);
+      border-radius: 16px;
+      display: inline-block;
+      font-size: 0.88rem;
+      color: #8A7A70;
+    }
+    .address-strip strong { color: var(--forest); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--forest); color: rgba(250,247,242,0.6);
+      text-align: center; padding: 2.5rem 2rem;
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer strong { color: var(--warm-white); }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; color: var(--warm-white);
+      margin-bottom: 0.8rem; display: block;
+    }
+    .footer-logo span { color: var(--gold); }
+
+    /* ─── LIGHTBOX ─── */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(20,16,12,0.92); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw; max-height: 90vh;
+      border-radius: 12px; object-fit: contain;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    }
+    .lightbox-close {
+      position: absolute; top: 1.5rem; right: 2rem;
+      color: #fff; font-size: 2rem; cursor: pointer; line-height: 1;
+      opacity: 0.7; transition: opacity 0.2s;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      color: #fff; font-size: 2.5rem; cursor: pointer;
+      opacity: 0.6; transition: opacity 0.2s;
+      padding: 0 1rem; user-select: none;
+    }
+    .lightbox-nav:hover { opacity: 1; }
+    #lightboxPrev { left: 1.5rem; }
+    #lightboxNext { right: 4.5rem; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      section { padding: 5rem 3rem; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-image { height: 50vh; }
+      .hero-text { padding: 3rem 3rem 3rem 3rem; }
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      .about-images { height: 360px; }
+      #location { grid-template-columns: 1fr; gap: 3rem; }
+      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .hero-text { padding: 2.5rem 1.5rem; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item { grid-column: auto !important; grid-row: auto !important; height: 180px; }
+      .amenities-grid { grid-template-columns: 1fr 1fr; }
+      .contact-cards { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="images/gshlogo.jpeg" alt="Green Street Hideaway logo">
+    Green Street <span>Hideaway</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#amenities">Amenities</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#contact" class="nav-book">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Šempeter v Savinjski Dolini · Slovenia</div>
+    <h1 class="hero-title">
+      Your cosy retreat<br>in the heart of the<br><em>Savinja Valley</em>
+    </h1>
+    <p class="hero-subtitle">
+      A lovingly renovated ground-floor apartment with 2 bedrooms, a private garden and terrace, and mountain views — the perfect base for exploring Slovenia.
+    </p>
+    <div class="hero-cta-group">
+      <a href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener" class="btn-primary">Check Availability</a>
+      <a href="#gallery" class="btn-secondary">See photos</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="images/01_living_room_main.jpg" alt="Green Street Hideaway – bright open-plan living and dining area">
+    <div class="hero-badge">
+      <div class="badge-icon">⭐</div>
+      <div class="badge-text">
+        <strong>9.8 Exceptional</strong>
+        27 reviews on Booking.com
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="about-images">
+    <div class="about-img-main">
+      <img src="images/03_dining_area.jpg" alt="Dining area with warm lighting">
+    </div>
+    <div class="about-img-accent">
+      <img src="images/17_terrace_grill.jpg" alt="Private terrace with BBQ grill">
+    </div>
+  </div>
+  <div class="about-text">
+    <div class="section-label">Our Story</div>
+    <h2 class="section-title">A curated local<br>experience, just for you</h2>
+    <p>
+      Green Street Hideaway was born from a passion for renovation and genuine hospitality. In late 2024, we transformed this ground-floor apartment into a warm, modern retreat — 2 bedrooms and 2 bathrooms, ideal for a family of four or a group of friends.
+    </p>
+    <p>
+      Nestled in the Lower Savinja Valley, you're surrounded by rolling hills, orchards, cycling paths, and crisp mountain air. Step outside to your private garden and terrace, fire up the BBQ, and let Slovenia's unhurried charm do the rest.
+    </p>
+    <div class="fun-fact">
+      🌿 Did you know? "Zelena ulica" literally means <strong>Green Street</strong> in Slovenian — which is exactly where we live, and where the name was born.
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-number">2–4</div>
+        <div class="stat-label">Guests</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2+2</div>
+        <div class="stat-label">Bedrooms & Bathrooms</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">9.8</div>
+        <div class="stat-label">⭐ Booking.com Score</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2024</div>
+        <div class="stat-label">Fully Renovated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
+<section id="gallery">
+  <div class="gallery-intro">
+    <div class="section-label">The Space</div>
+    <h2 class="section-title">Every corner designed with care</h2>
+    <p>From the open-plan living area to the sun-drenched terrace — every detail was chosen to make you feel at home. Click any photo to explore.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="images/02_living_room_2.jpg" alt="Living room with comfortable seating"></div>
+    <div class="gallery-item"><img src="images/07_bedroom1_bed_tv.jpg" alt="Master bedroom with TV"></div>
+    <div class="gallery-item"><img src="images/04_kitchen_main.jpg" alt="Fully equipped kitchen"></div>
+    <div class="gallery-item"><img src="images/09_bedroom2_metal_bed.jpg" alt="Second bedroom"></div>
+    <div class="gallery-item"><img src="images/10_bathroom1_shower.jpg" alt="Modern bathroom with shower"></div>
+    <div class="gallery-item"><img src="images/19_terrace_chairs.jpg" alt="Terrace with outdoor seating"></div>
+    <div class="gallery-item"><img src="images/22_garden_backyard.jpg" alt="Private garden and backyard"></div>
+    <div class="gallery-item"><img src="images/24_mountain_view.jpg" alt="Mountain views from the property"></div>
+  </div>
+  <p class="gallery-note">📸 34 photos in total — browse all by clicking any image above.</p>
+</section>
+
+<!-- ─── AMENITIES ─── -->
+<section id="amenities">
+  <div class="section-label">What's included</div>
+  <h2 class="section-title">Everything you need,<br>nothing you don't</h2>
+  <p class="amenities-intro">We've thought of every detail so you can arrive, unpack, and instantly feel at home.</p>
+  <div class="amenities-grid">
+    <div class="amenity-card">
+      <div class="amenity-icon">📶</div>
+      <div class="amenity-name">High-Speed Wi-Fi</div>
+      <div class="amenity-desc">Fast, reliable broadband throughout the entire apartment.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🍳</div>
+      <div class="amenity-name">Fully Equipped Kitchen</div>
+      <div class="amenity-desc">Hob, oven, dishwasher, coffee maker — everything for a proper home-cooked meal.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🛏️</div>
+      <div class="amenity-name">2 Bedrooms</div>
+      <div class="amenity-desc">Quality mattresses, fresh linen, and ample wardrobe space for the whole family.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🚿</div>
+      <div class="amenity-name">2 Bathrooms</div>
+      <div class="amenity-desc">Two modern bathrooms — walk-in shower, fresh towels, and premium toiletries.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🔥</div>
+      <div class="amenity-name">BBQ & Terrace</div>
+      <div class="amenity-desc">Private terrace with outdoor seating and a BBQ grill — perfect for summer evenings.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🌿</div>
+      <div class="amenity-name">Private Garden</div>
+      <div class="amenity-desc">A peaceful garden with mountain views, all to yourself.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🅿️</div>
+      <div class="amenity-name">Free Parking</div>
+      <div class="amenity-desc">Private off-street parking spot reserved just for you.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">❄️</div>
+      <div class="amenity-name">Air Conditioning</div>
+      <div class="amenity-desc">Stay cool in summer and warm in winter with full climate control.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">📺</div>
+      <div class="amenity-name">Smart TV</div>
+      <div class="amenity-desc">Smart TV with Netflix and streaming apps so you can unwind your way.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🛁</div>
+      <div class="amenity-name">Towels & Linen</div>
+      <div class="amenity-desc">Fresh towels and bed linen provided — no need to pack your own.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🏋️</div>
+      <div class="amenity-name">Fitness Room</div>
+      <div class="amenity-desc">A dedicated gym space on the property for your workouts.</div>
+    </div>
+    <div class="amenity-card">
+      <div class="amenity-icon">🔑</div>
+      <div class="amenity-name">Self Check-in</div>
+      <div class="amenity-desc">Flexible arrival — check in any time with easy self-check-in access.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOCATION ─── -->
+<section id="location">
+  <div class="location-text">
+    <div class="section-label">Find us</div>
+    <h2 class="section-title">In the heart of the<br>Savinja Valley</h2>
+    <p>
+      We're tucked away on a quiet green street in Šempeter v Savinjski Dolini — a charming town in the Lower Savinja Valley, surrounded by orchards, forests, and the gentle Savinja River.
+    </p>
+    <p>
+      Perfectly placed for day trips: ancient Roman history, thermal spas, riverside walks, and the famous Beer Fountain of Žalec are all within easy reach.
+    </p>
+    <div class="location-highlights">
+      <div class="location-item">
+        <div class="location-item-icon">🍺</div>
+        <div class="location-item-text">
+          <strong>Beer Fountain Žalec — 4 km</strong>
+          <span>The world's first public beer fountain — free craft beer on tap!</span>
+        </div>
+      </div>
+      <div class="location-item">
+        <div class="location-item-icon">🏛️</div>
+        <div class="location-item-text">
+          <strong>Roman Necropolis — walking distance</strong>
+          <span>Impressive ancient Roman burial site right in town</span>
+        </div>
+      </div>
+      <div class="location-item">
+        <div class="location-item-icon">🚂</div>
+        <div class="location-item-text">
+          <strong>Celje Train Station — 14 km</strong>
+          <span>Historic city with a medieval castle; direct trains to Ljubljana</span>
+        </div>
+      </div>
+      <div class="location-item">
+        <div class="location-item-icon">♨️</div>
+        <div class="location-item-text">
+          <strong>Rimske Toplice Thermal Spa — 31 km</strong>
+          <span>Relax in Roman-era thermal waters in a stunning valley setting</span>
+        </div>
+      </div>
+      <div class="location-item">
+        <div class="location-item-icon">✈️</div>
+        <div class="location-item-text">
+          <strong>Ljubljana Airport (LJU) — 63 km</strong>
+          <span>About 50 minutes by car from the apartment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="map-container">
+    <iframe
+      src="https://maps.google.com/maps?q=Zelena+ulica+17,+Sempeter+v+Savinjski+dolini,+Slovenia&output=embed"
+      allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Green Street Hideaway location – Zelena ulica 17, Šempeter v Savinjski Dolini">
+    </iframe>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="section-label">Get in touch</div>
+  <h2 class="section-title">Ready to book your stay?</h2>
+  <p class="section-subtitle">
+    Check our availability directly on Booking.com, or reach out to us personally — we're always happy to answer questions and help you plan your visit.
+  </p>
+  <div class="contact-cards">
+    <div class="contact-card booking">
+      <div class="contact-card-icon">🏨</div>
+      <h3>Book on Booking.com</h3>
+      <p>Check live availability, read 27 reviews, and reserve your dates securely online.</p>
+      <a href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener" class="card-btn">View Listing</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon">✉️</div>
+      <h3>Send us an Email</h3>
+      <p>Have a question or a special request? We'll get back to you within a few hours.</p>
+      <a href="mailto:gsha.booking@gmail.com" class="card-btn">Email Us</a>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon">📱</div>
+      <h3>WhatsApp / Call</h3>
+      <p>Prefer to chat? Drop us a message on WhatsApp or give us a quick call.</p>
+      <a href="https://wa.me/38631616002" target="_blank" rel="noopener" class="card-btn">Message Us</a>
+    </div>
+  </div>
+  <div class="address-strip">
+    📍 <strong>Zelena ulica 17</strong>, 3311 Šempeter v Savinjski Dolini, Slovenia
+    &nbsp;·&nbsp;
+    <a href="tel:+38631616002" style="color: var(--terra); text-decoration: none;">+386 31 616 002</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:gsha.booking@gmail.com" style="color: var(--terra); text-decoration: none;">gsha.booking@gmail.com</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <span class="footer-logo">Green Street <span>Hideaway</span></span>
+  <p>Zelena ulica 17, 3311 Šempeter v Savinjski Dolini, Slovenia</p>
+  <p style="margin-top:0.4rem">
+    <a href="tel:+38631616002">+386 31 616 002</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:gsha.booking@gmail.com">gsha.booking@gmail.com</a>
+  </p>
+  <p style="margin-top:0.8rem; opacity:0.5;">© 2025 Green Street Hideaway. All rights reserved.</p>
+</footer>
+
+<!-- ─── LIGHTBOX ─── -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">✕</span>
+  <span class="lightbox-nav" id="lightboxPrev">‹</span>
+  <span class="lightbox-nav" id="lightboxNext">›</span>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
+<script>
+  // Navbar shadow on scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Gallery lightbox with navigation
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item img'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = galleryItems[index].src;
+    lightboxImg.alt = galleryItems[index].alt;
+    lightbox.classList.add('open');
+  }
+
+  galleryItems.forEach((img, i) => {
+    img.addEventListener('click', () => openLightbox(i));
+  });
+
+  lightboxPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    openLightbox(currentIndex);
+  });
+  lightboxNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % galleryItems.length;
+    openLightbox(currentIndex);
+  });
+
+  lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.classList.remove('open');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') lightbox.classList.remove('open');
+    if (e.key === 'ArrowLeft' && lightbox.classList.contains('open')) {
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      openLightbox(currentIndex);
+    }
+    if (e.key === 'ArrowRight' && lightbox.classList.contains('open')) {
+      currentIndex = (currentIndex + 1) % galleryItems.length;
+      openLightbox(currentIndex);
+    }
+  });
+</script>
+</body>
+</html>
