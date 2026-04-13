@@ -395,6 +395,40 @@
       font-style: italic;
     }
 
+    /* ─── GALLERY CATEGORIES ─── */
+    .gallery-category {
+      margin-top: 3rem;
+    }
+    .gallery-category-label {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--sage);
+      margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .gallery-category-label::before {
+      content: ''; display: block; width: 20px; height: 1.5px;
+      background: var(--sage-light);
+    }
+    .gallery-grid-uniform {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .gallery-grid-uniform .gallery-item {
+      height: 200px;
+    }
+    @media (max-width: 1024px) {
+      .gallery-grid-uniform { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .gallery-grid-uniform { grid-template-columns: 1fr 1fr; }
+      .gallery-grid-uniform .gallery-item { height: 170px; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid-uniform { grid-template-columns: 1fr; }
+      .gallery-grid-uniform .gallery-item { height: 220px; }
+    }
+
     /* ─── AMENITIES ─── */
     #amenities {
       background: var(--forest);
@@ -801,7 +835,7 @@
     <p class="reveal reveal-delay-2">From the open-plan living area to the sun-drenched terrace — every detail was chosen to make you feel at home. Click any photo to explore.</p>
   </div>
   <div class="gallery-grid reveal">
-    <div class="gallery-item"><img src="images/02_living_room_2.jpg" alt="Living room with comfortable seating" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/01_living_room_main.jpg" alt="Bright open-plan living and dining area" loading="lazy"></div>
     <div class="gallery-item"><img src="images/07_bedroom1_bed_tv.jpg" alt="Master bedroom with TV" loading="lazy"></div>
     <div class="gallery-item"><img src="images/04_kitchen_main.jpg" alt="Fully equipped kitchen" loading="lazy"></div>
     <div class="gallery-item"><img src="images/09_bedroom2_metal_bed.jpg" alt="Second bedroom" loading="lazy"></div>
@@ -810,7 +844,55 @@
     <div class="gallery-item"><img src="images/22_garden_backyard.jpg" alt="Private garden and backyard" loading="lazy"></div>
     <div class="gallery-item"><img src="images/24_mountain_view.jpg" alt="Mountain views from the property" loading="lazy"></div>
   </div>
-  <p class="gallery-note reveal">Click any image to browse the gallery.</p>
+
+  <!-- Interior -->
+  <div class="gallery-category reveal">
+    <div class="gallery-category-label">Interior</div>
+    <div class="gallery-grid-uniform">
+      <div class="gallery-item"><img src="images/02_living_room_2.jpg" alt="Living room with comfortable seating" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/03_dining_area.jpg" alt="Dining area with warm lighting" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/05_kitchen_dining.jpg" alt="Kitchen and dining overview" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/06_kitchen_tv_area.jpg" alt="Kitchen and TV area" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/08_bedroom1_bed_tv_alt.jpg" alt="Master bedroom alternate view" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/11_bathroom2_toilet.jpg" alt="Second bathroom" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/12_hallway_mirror.jpg" alt="Hallway with mirror" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/13_hallway_doors.jpg" alt="Hallway and doors" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/14_coffee_machine.jpg" alt="Coffee machine" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/15_gym_room.jpg" alt="Fitness room" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/16_reading_corner.jpg" alt="Reading corner" loading="lazy"></div>
+    </div>
+  </div>
+
+  <!-- Outdoor & Terrace -->
+  <div class="gallery-category reveal">
+    <div class="gallery-category-label">Outdoor &amp; Terrace</div>
+    <div class="gallery-grid-uniform">
+      <div class="gallery-item"><img src="images/17_terrace_grill.jpg" alt="Terrace with BBQ grill" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/18_terrace_flowers.jpg" alt="Terrace with flowers" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/20_terrace_bench.jpg" alt="Terrace bench seating" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/21_patio_picnic.jpg" alt="Patio picnic area" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/23_house_exterior.jpg" alt="House exterior" loading="lazy"></div>
+    </div>
+  </div>
+
+  <!-- The Surroundings -->
+  <div class="gallery-category reveal">
+    <div class="gallery-category-label">The Surroundings</div>
+    <div class="gallery-grid-uniform">
+      <div class="gallery-item"><img src="images/25_mountain_field.jpg" alt="Mountain field views" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/26_area_forest_road.jpg" alt="Forest road nearby" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/27_area_river_bench.jpg" alt="River bench by the Savinja" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/28_area_river_sunset.jpg" alt="River sunset" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/29_area_river_autumn.jpg" alt="Savinja River in autumn" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/30_area_winter_path.jpg" alt="Winter path" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/31_area_winter_field.jpg" alt="Winter field" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/32_area_river_walk.jpg" alt="Riverside walk" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/33_area_river_walk2.jpg" alt="Riverside walk along the Savinja" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/34_area_forest_walk.jpg" alt="Forest walk" loading="lazy"></div>
+    </div>
+  </div>
+
+  <p class="gallery-note reveal">All 34 photos — click any image to browse the full gallery.</p>
 </section>
 
 <!-- ─── AMENITIES ─── -->
