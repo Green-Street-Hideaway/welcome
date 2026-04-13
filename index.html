@@ -126,7 +126,8 @@
     .nav-hamburger {
       display: none; flex-direction: column; gap: 5px; cursor: pointer;
       background: none; border: none; padding: 0.4rem;
-      z-index: 110;
+      z-index: 120;
+      position: relative;
     }
     .nav-hamburger span {
       display: block; width: 22px; height: 2px;
@@ -504,6 +505,53 @@
     }
     .location-item-text span { font-size: 0.8rem; color: #8A7A70; }
 
+    /* ─── SPA TRIO ─── */
+    .spa-trio {
+      background: var(--warm-white);
+      border: 1px solid var(--beige);
+      border-radius: 20px; padding: 1.5rem;
+      margin-top: 0.2rem;
+    }
+    .spa-trio-header {
+      display: flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 1rem; padding-left: 0.3rem;
+    }
+    .spa-trio-icon { font-size: 1.1rem; }
+    .spa-trio-header strong {
+      color: var(--terra); font-size: 0.72rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .spa-trio-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem;
+    }
+    .spa-card {
+      background: var(--cream);
+      border: 1px solid var(--beige);
+      border-radius: 14px; padding: 1.1rem 1rem;
+      text-align: center;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .spa-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(58,46,38,0.08);
+    }
+    .spa-card-distance {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 600;
+      color: var(--terra); line-height: 1.2;
+    }
+    .spa-card-name {
+      color: var(--forest); font-size: 0.85rem;
+      font-weight: 600; margin: 0.3rem 0 0.2rem;
+    }
+    .spa-card-detail {
+      color: #8A7A70; font-size: 0.72rem;
+      line-height: 1.4;
+    }
+    @media (max-width: 480px) {
+      .spa-trio-cards { grid-template-columns: 1fr; }
+    }
+
     .map-container {
       border-radius: 24px; overflow: hidden;
       box-shadow: 0 24px 60px rgba(58,46,38,0.1);
@@ -698,12 +746,11 @@
       .nav-links {
         display: flex !important; flex-direction: column; gap: 0;
         position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(250,247,242,0.98); backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        background: var(--cream);
         padding: 5rem 2rem 2rem;
         transform: translateY(-100%); opacity: 0; pointer-events: none;
         transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-        z-index: 99;
+        z-index: 105;
         justify-content: center; align-items: center;
       }
       .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
@@ -988,11 +1035,27 @@
           <span>Historic city with a medieval castle; direct trains to Ljubljana</span>
         </div>
       </div>
-      <div class="location-item">
-        <div class="location-item-icon">&#9832;&#65039;</div>
-        <div class="location-item-text">
-          <strong>Rimske Toplice Thermal Spa — 31 km</strong>
-          <span>Relax in Roman-era thermal waters in a stunning valley setting</span>
+      <div class="spa-trio">
+        <div class="spa-trio-header">
+          <span class="spa-trio-icon">&#9832;&#65039;</span>
+          <strong>Thermal Spas Nearby</strong>
+        </div>
+        <div class="spa-trio-cards">
+          <div class="spa-card">
+            <div class="spa-card-distance">17 km</div>
+            <div class="spa-card-name">Terme Dobrna</div>
+            <div class="spa-card-detail">19 min &middot; Oldest spa in Slovenia</div>
+          </div>
+          <div class="spa-card">
+            <div class="spa-card-distance">21 km</div>
+            <div class="spa-card-name">Thermana Laško</div>
+            <div class="spa-card-detail">25 min &middot; Modern wellness resort</div>
+          </div>
+          <div class="spa-card">
+            <div class="spa-card-distance">31 km</div>
+            <div class="spa-card-name">Rimske Terme</div>
+            <div class="spa-card-detail">36 min &middot; Roman-era thermal waters</div>
+          </div>
         </div>
       </div>
       <div class="location-item">
