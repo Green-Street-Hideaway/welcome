@@ -739,25 +739,40 @@
       #location { grid-template-columns: 1fr; gap: 3rem; }
       .amenities-grid { grid-template-columns: repeat(2, 1fr); }
     }
+    /* ─── MOBILE NAV OVERLAY ─── */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: #FAF7F2;
+      z-index: 9999;
+      justify-content: center; align-items: center;
+    }
+    .mobile-nav-overlay.open { display: flex; }
+    .mobile-nav-list {
+      list-style: none; text-align: center;
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .mobile-nav-list li { padding: 0.8rem 0; }
+    .mobile-nav-list a {
+      font-size: 1rem; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--brown);
+      text-decoration: none; transition: color 0.3s;
+    }
+    .mobile-nav-list a:hover { color: var(--terra); }
+    .mobile-nav-list .nav-book {
+      display: inline-block; margin-top: 1rem;
+      background: var(--forest); color: #fff !important;
+      padding: 0.8rem 2.5rem; border-radius: 50px;
+      box-shadow: 0 2px 12px rgba(45,58,46,0.25);
+      transition: all 0.3s;
+    }
+    .mobile-nav-list .nav-book:hover { background: var(--terra); }
+
     @media (max-width: 768px) {
       nav { padding: 0.9rem 1.5rem; }
       nav.scrolled { padding: 0.8rem 1.5rem; }
       .nav-hamburger { display: flex; }
-      .nav-links {
-        display: flex !important; flex-direction: column; gap: 0;
-        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-        background: var(--cream);
-        padding: 5rem 2rem 2rem;
-        transform: translateY(-100%); opacity: 0; pointer-events: none;
-        transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-        z-index: 105;
-        justify-content: center; align-items: center;
-      }
-      .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
-      .nav-links li { padding: 0.8rem 0; }
-      .nav-links a { font-size: 1rem; letter-spacing: 0.15em; }
-      .nav-links a::after { display: none; }
-      .nav-book { margin-top: 1rem; padding: 0.8rem 2.5rem !important; }
+      .nav-links--desktop { display: none !important; }
       section { padding: 4rem 1.5rem; }
       .hero-text { padding: 5rem 1.5rem 2.5rem; }
       .gallery-grid {
@@ -792,7 +807,7 @@
   <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
-  <ul class="nav-links" id="navLinks">
+  <ul class="nav-links nav-links--desktop" id="navLinksDesktop">
     <li><a href="#about">About</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#amenities">Amenities</a></li>
@@ -800,6 +815,17 @@
     <li><a href="#contact" class="nav-book">Book Now</a></li>
   </ul>
 </nav>
+
+<!-- Mobile nav overlay (outside nav for proper stacking) -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay">
+  <ul class="mobile-nav-list">
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#amenities">Amenities</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#contact" class="nav-book">Book Now</a></li>
+  </ul>
+</div>
 
 <!-- ─── HERO ─── -->
 <section id="hero">
@@ -1154,16 +1180,16 @@
 
   // ─── Mobile hamburger ───
   const hamburger = document.getElementById('navHamburger');
-  const navLinks = document.getElementById('navLinks');
+  const mobileNav = document.getElementById('mobileNavOverlay');
   hamburger.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
+    const isOpen = mobileNav.classList.toggle('open');
     hamburger.classList.toggle('open', isOpen);
     hamburger.setAttribute('aria-expanded', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
-  navLinks.querySelectorAll('a').forEach(link => {
+  mobileNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
+      mobileNav.classList.remove('open');
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', false);
       document.body.style.overflow = '';
