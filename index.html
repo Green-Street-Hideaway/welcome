@@ -151,7 +151,7 @@
       padding: 8rem 4rem 5rem 6rem;
     }
     .hero-eyebrow {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
+      font-size: clamp(0.72rem, 0.9vw, 0.92rem); font-weight: 600; letter-spacing: 0.2em;
       text-transform: uppercase; color: var(--terra);
       margin-bottom: 1.5rem;
       display: flex; align-items: center; gap: 0.8rem;
@@ -163,7 +163,7 @@
     }
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 4.5vw, 4rem);
+      font-size: clamp(2.6rem, 4.5vw, 5.2rem);
       line-height: 1.12;
       color: var(--forest);
       margin-bottom: 2rem;
@@ -177,8 +177,8 @@
       background-clip: text;
     }
     .hero-subtitle {
-      font-size: 1.05rem; color: #6B5E54;
-      max-width: 420px; margin-bottom: 3rem;
+      font-size: clamp(1.05rem, 1.15vw, 1.3rem); color: #6B5E54;
+      max-width: 480px; margin-bottom: 3rem;
       font-weight: 300; line-height: 1.85;
       opacity: 0; animation: fadeSlideUp 0.8s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
@@ -269,7 +269,7 @@
     }
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      font-size: clamp(1.8rem, 3vw, 3.2rem);
       color: var(--forest); line-height: 1.22;
       margin-bottom: 1.4rem;
       letter-spacing: -0.01em;
@@ -731,6 +731,18 @@
     }
 
     /* ─── RESPONSIVE ─── */
+    @media (min-width: 1400px) {
+      body { font-size: 1.05rem; }
+      .btn-primary { padding: 1.1rem 2.6rem; font-size: 0.95rem; }
+      .btn-secondary { font-size: 0.95rem; }
+      .nav-links a { font-size: 0.85rem; }
+      .about-text p, .location-text p, .gallery-intro p, .amenities-intro { font-size: 1.1rem; }
+      .amenity-name { font-size: 1rem; }
+      .amenity-desc { font-size: 0.88rem; }
+      .contact-card h3 { font-size: 1.3rem; }
+      .contact-card p { font-size: 0.92rem; }
+    }
+
     @media (max-width: 1024px) {
       section { padding: 5rem 3rem; }
       #hero { grid-template-columns: 1fr; }
@@ -837,7 +849,7 @@
       Your cosy retreat<br>in the heart of the<br><em>Savinja Valley</em>
     </h1>
     <p class="hero-subtitle">
-      A lovingly renovated ground-floor apartment with 2 bedrooms, a private garden and terrace, and mountain views — the perfect base for exploring Slovenia.
+      A lovingly renovated ground-floor apartment with 2 bedrooms, a private garden and terrace, and countryside views — the perfect base for exploring Slovenia.
     </p>
     <div class="hero-cta-group">
       <a href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener" class="btn-primary">Check Availability</a>
