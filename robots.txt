@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://green-street-hideaway.github.io/welcome/sitemap.xml
