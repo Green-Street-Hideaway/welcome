@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Green Street Hideaway – Apartment in Šempeter v Savinjski Dolini, Slovenia</title>
-  <meta name="description" content="A lovingly renovated ground-floor apartment in the Lower Savinja Valley, Slovenia. 2 bedrooms, 2 bathrooms, private garden and terrace, free parking. Rated 9.8 Exceptional on Booking.com.">
+  <meta name="description" content="A quiet, renovated garden apartment in the Savinja Valley, Slovenia. 2 bedrooms, 2 bathrooms, private garden and terrace, free parking. Rated 9.8 Exceptional on Booking.com.">
   <link rel="canonical" href="https://green-street-hideaway.github.io/welcome/">
-  <meta name="theme-color" content="#FAF7F2">
+  <meta name="theme-color" content="#18261F">
 
   <!-- Favicons -->
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Green Street Hideaway – Your cosy retreat in the Savinja Valley">
-  <meta property="og:description" content="A lovingly renovated ground-floor apartment with 2 bedrooms, 2 bathrooms, a private garden and terrace. Rated 9.8 Exceptional on Booking.com.">
+  <meta property="og:title" content="Green Street Hideaway – A quiet hideaway in Slovenia’s green valley">
+  <meta property="og:description" content="A renovated two-bedroom garden apartment among hop fields and river paths, with mountain views. Rated 9.8 Exceptional on Booking.com.">
   <meta property="og:image" content="https://green-street-hideaway.github.io/welcome/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -28,1833 +28,1122 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="images/banner-main.webp" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" type="image/webp"
+        href="images/hero/living-1600.webp"
+        imagesrcset="images/hero/living-portrait-900.webp 900w"
+        media="(max-width: 700px) and (orientation: portrait)" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp"
+        imagesrcset="images/hero/living-1600.webp 1600w, images/hero/living-2400.webp 2400w"
+        imagesizes="100vw"
+        media="not all and (max-width: 700px) and (orientation: portrait)" fetchpriority="high">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* ═══════════════════════════════════════════
+       Design tokens — "Linen & Hop Green"
+       ═══════════════════════════════════════════ */
     :root {
-      --cream:      #FAF7F2;
-      --warm-white: #FFF9F4;
-      --forest:     #2D3A2E;
-      --sage:       #5A7A5C;
-      --sage-light: #8FAE90;
-      --terra:      #B87048;
-      --terra-light:#D4956E;
-      --brown:      #3A2E26;
-      --beige:      #E8DDD0;
-      --beige-dark: #D4C5B0;
-      --gold:       #C9A96E;
-      --muted:      #6B5E54;
-      --muted-soft: #8A7A70;
-      --nav-h:      88px;
+      --linen:      #F4F2EC;   /* page ground */
+      --paper:      #FBFAF7;   /* cards, light bands */
+      --line:       #DAD5C8;   /* hairlines */
+      --line-soft:  #E7E3D9;
+      --sage:       #8FA58E;
+      --hop:        #34503D;   /* brand green, primary buttons */
+      --hop-dark:   #2A4232;
+      --pine:       #18261F;   /* text, dark bands */
+      --cone:       #D3DC9B;   /* small accents on dark */
+      --ink-soft:   #4C554E;   /* body copy on light */
+      --ink-mute:   #5F675F;   /* captions on light */
+
+      --serif: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+      --sans:  'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+      --wrap:   1360px;
+      --gutter: clamp(20px, 4vw, 40px);
+      --radius: 4px;
+      --ease:   cubic-bezier(.2, .7, .2, 1);
+      --nav-h:  84px;
     }
 
-    html { scroll-behavior: smooth; }
-
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--cream);
-      color: var(--brown);
-      line-height: 1.7;
-      overflow-x: hidden;
+      margin: 0;
+      background: var(--linen);
+      color: var(--pine);
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: var(--hop); text-underline-offset: 3px; }
+    a:hover { color: var(--pine); }
+    h1, h2, h3, p, blockquote, figure, dl, dd, ul { margin: 0; }
+    ul { padding: 0; list-style: none; }
+    button { font: inherit; color: inherit; }
+    :focus-visible { outline: 2px solid var(--hop); outline-offset: 3px; border-radius: 2px; }
+    .on-dark :focus-visible, .hero :focus-visible, .site-header:not(.is-solid) :focus-visible { outline-color: var(--cone); }
 
-    /* ─── ACCESSIBILITY ─── */
-    :focus-visible {
-      outline: 3px solid var(--terra);
-      outline-offset: 3px;
-      border-radius: 6px;
-    }
     .skip-link {
-      position: absolute; top: -100px; left: 1rem; z-index: 10000;
-      background: var(--forest); color: #fff;
-      padding: 0.8rem 1.4rem; border-radius: 0 0 12px 12px;
-      text-decoration: none; font-size: 0.85rem; font-weight: 500;
-      transition: top 0.25s;
+      position: absolute; left: 16px; top: -60px; z-index: 200;
+      background: var(--pine); color: var(--paper); padding: 10px 16px; border-radius: var(--radius);
+      font-weight: 600; text-decoration: none;
     }
-    .skip-link:focus { top: 0; }
-    /* anchor targets clear the fixed navbar */
-    section[id] { scroll-margin-top: var(--nav-h); }
-
-    /* ─── SCROLL PROGRESS BAR ─── */
-    .scroll-progress {
-      position: fixed; top: 0; left: 0; height: 3px; z-index: 200;
-      background: linear-gradient(90deg, var(--terra), var(--gold), var(--sage));
-      width: 0%; transition: width 0.1s linear;
+    .skip-link:focus { top: 16px; color: var(--paper); }
+    .visually-hidden {
+      position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+      clip: rect(0 0 0 0); white-space: nowrap;
     }
 
-    /* ─── SCROLL REVEAL ANIMATIONS ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); }
 
-    /* ─── NAVIGATION ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 3rem;
-      background: rgba(250, 247, 242, 0.9);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* ─── Type ─── */
+    .eyebrow {
+      font-size: 13px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--hop);
     }
-    nav.scrolled {
-      background: rgba(250, 247, 242, 0.97);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 1px 30px rgba(58,46,38,0.07);
-      padding: 0.8rem 3rem;
+    .on-dark .eyebrow, .hero .eyebrow { color: var(--cone); }
+    .display {
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(40px, 5.2vw, 64px); line-height: 1.02; letter-spacing: -.005em;
     }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      color: var(--forest);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      display: flex; align-items: center; gap: 0.6rem;
-      font-weight: 500;
+    .display em, .hero-title em { font-style: italic; }
+    .lede { font-size: clamp(16px, 1.3vw, 18px); line-height: 1.7; color: var(--ink-soft); }
+    .on-dark .lede { color: rgba(244,242,236,.78); }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 52px; padding: 0 28px; border-radius: 999px;
+      font-family: var(--sans); font-weight: 600; font-size: 16px; line-height: 1;
+      text-decoration: none; border: 1px solid transparent; cursor: pointer; white-space: nowrap;
+      transition: background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
     }
-    .nav-logo img {
-      height: 40px; width: 40px;
-      border-radius: 50%; object-fit: cover;
-      box-shadow: 0 2px 10px rgba(58,46,38,0.12);
+    .btn svg { flex: none; }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--hop); color: var(--paper); }
+    .btn-primary:hover { background: var(--hop-dark); color: var(--paper); }
+    .btn-light { background: var(--paper); color: var(--pine); }
+    .btn-light:hover { background: #fff; color: var(--hop); }
+    .btn-ghost { border-color: rgba(251,250,247,.6); color: var(--paper); }
+    .btn-ghost:hover { border-color: var(--paper); background: rgba(251,250,247,.1); color: var(--paper); }
+    .btn-outline { border-color: var(--pine); color: var(--pine); }
+    .btn-outline:hover { background: var(--pine); color: var(--paper); }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .text-link {
+      display: inline-flex; align-items: center; gap: 8px; min-height: 44px;
+      font-weight: 600; font-size: 15px; color: var(--hop); text-decoration: none;
+      background: none; border: 0; padding: 0; cursor: pointer;
     }
-    .nav-logo span { color: var(--terra); }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
-    .nav-links a {
-      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--brown);
-      text-decoration: none;
-      position: relative;
-      transition: color 0.3s;
+    .text-link span { border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+    .text-link:hover { color: var(--pine); }
+    .text-link svg { transition: transform .25s var(--ease); }
+    .text-link:hover svg { transform: translateX(3px); }
+
+    /* ═══════════════════════════════════════════
+       Header
+       ═══════════════════════════════════════════ */
+    .site-header {
+      position: fixed; inset: 0 0 auto 0; z-index: 100;
+      color: var(--paper);
+      transition: background-color .35s var(--ease), color .35s var(--ease), box-shadow .35s var(--ease);
     }
+    .site-header.is-solid {
+      background: rgba(244,242,236,.94);
+      -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px);
+      color: var(--pine);
+      box-shadow: 0 1px 0 var(--line);
+    }
+    .header-inner {
+      max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter);
+      height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      transition: height .35s var(--ease);
+    }
+    .site-header.is-solid .header-inner { height: 68px; }
+    .brand { display: flex; flex-direction: column; line-height: 1; color: inherit; text-decoration: none; }
+    .brand:hover { color: inherit; }
+    .brand-name { font-family: var(--serif); font-size: 28px; letter-spacing: .005em; }
+    .brand-sub {
+      margin-top: 4px; font-size: 10.5px; font-weight: 600; letter-spacing: .34em; text-transform: uppercase;
+      color: var(--cone); transition: color .35s var(--ease);
+    }
+    .site-header.is-solid .brand-sub { color: var(--hop); }
+    .nav-links { display: flex; gap: clamp(18px, 2.4vw, 34px); font-size: 15px; font-weight: 500; }
+    .nav-links a { color: inherit; text-decoration: none; padding: 10px 0; position: relative; }
     .nav-links a::after {
-      content: ''; position: absolute;
-      bottom: -4px; left: 0; width: 0; height: 1.5px;
-      background: var(--terra);
-      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 1px;
+      background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease);
     }
-    .nav-links a:hover { color: var(--terra); }
-    .nav-links a:hover::after { width: 100%; }
-    /* active section highlight (scrollspy) */
-    .nav-links a.is-active { color: var(--terra); }
-    .nav-links a.is-active::after { width: 100%; }
-    .nav-book {
-      background: var(--forest); color: #fff !important;
-      padding: 0.6rem 1.6rem; border-radius: 50px;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      box-shadow: 0 2px 12px rgba(45,58,46,0.25);
+    .nav-links a:hover::after, .nav-links a.is-active::after { transform: scaleX(1); }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .icon-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border-radius: 999px; flex: none;
+      border: 1px solid rgba(251,250,247,.5); color: inherit; background: transparent; cursor: pointer;
+      transition: border-color .3s var(--ease), background-color .3s var(--ease);
     }
-    .nav-book::after { display: none !important; }
-    .nav-book:hover {
-      background: var(--terra) !important; color: #fff !important;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(184,112,72,0.35) !important;
-    }
+    .icon-btn:hover { color: inherit; background: rgba(251,250,247,.12); }
+    .site-header.is-solid .icon-btn { border-color: var(--line); }
+    .site-header.is-solid .icon-btn:hover { background: var(--paper); }
+    .header-book { min-height: 48px; padding: 0 22px; font-size: 15px; }
+    .site-header:not(.is-solid) .header-book { background: var(--paper); color: var(--pine); }
+    .site-header:not(.is-solid) .header-book:hover { background: #fff; }
+    .menu-btn { display: none; }
 
-    /* ─── MOBILE HAMBURGER ─── */
-    .nav-hamburger {
-      display: none; flex-direction: column; gap: 5px; cursor: pointer;
-      background: none; border: none; padding: 0.4rem;
-      z-index: 120;
-      position: relative;
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 150; background: var(--pine); color: var(--linen);
+      display: flex; flex-direction: column; padding: 20px var(--gutter) 32px;
+      opacity: 0; visibility: hidden; transition: opacity .35s var(--ease), visibility 0s linear .35s;
     }
-    .nav-hamburger span {
-      display: block; width: 22px; height: 2px;
-      background: var(--forest); border-radius: 2px;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    .mobile-menu.open { opacity: 1; visibility: visible; transition: opacity .35s var(--ease); }
+    .mobile-menu-top { display: flex; justify-content: space-between; align-items: center; height: 48px; }
+    .mobile-menu .icon-btn { border-color: rgba(244,242,236,.35); }
+    .mobile-menu nav { margin-top: 36px; flex: 1; }
+    .mobile-menu nav a {
+      display: block; padding: 12px 0; font-family: var(--serif); font-size: 40px; line-height: 1.1;
+      color: var(--linen); text-decoration: none; border-bottom: 1px solid rgba(244,242,236,.12);
     }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu nav a:hover { color: var(--cone); }
+    .mobile-menu .btn-row { flex-direction: column; }
+    .mobile-menu .btn { width: 100%; }
 
-    /* ─── HERO ─── */
-    #hero {
-      display: flex; flex-direction: column;
-      padding-top: 0;
+    /* ═══════════════════════════════════════════
+       Hero
+       ═══════════════════════════════════════════ */
+    .hero {
+      position: relative; isolation: isolate; overflow: hidden;
+      min-height: 640px; height: 100vh; height: 100svh; max-height: 1000px;
+      background: var(--pine); color: var(--paper);
+      display: flex; align-items: flex-end;
     }
-    .hero-text {
-      padding: 4rem 6rem 5rem;
-      max-width: 900px; margin: 0 auto;
-      text-align: center;
+    .hero-media, .hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero-media { z-index: -2; }
+    .hero-media img { object-fit: cover; object-position: 40% 55%; animation: heroIn 2.4s var(--ease) both; }
+    @keyframes heroIn { from { transform: scale(1.06); opacity: .6; } to { transform: scale(1); opacity: 1; } }
+    .hero::after {
+      content: ''; position: absolute; inset: 0; z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(24,38,31,.55) 0%, rgba(24,38,31,0) 22%),
+        linear-gradient(0deg, rgba(24,38,31,.82) 0%, rgba(24,38,31,.35) 38%, rgba(24,38,31,0) 62%);
     }
-    .hero-eyebrow { justify-content: center; }
-    .hero-subtitle { margin-left: auto; margin-right: auto; }
-    .hero-cta-group { justify-content: center; }
-    .hero-eyebrow {
-      font-size: clamp(0.72rem, 0.9vw, 0.92rem); font-weight: 600; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--terra);
-      margin-bottom: 1.5rem;
-      display: flex; align-items: center; gap: 0.8rem;
-      opacity: 0; animation: fadeSlideUp 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .hero-inner {
+      width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter) clamp(40px, 7vh, 72px);
+      display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px;
     }
-    .hero-eyebrow::before {
-      content: ''; display: block; width: 36px; height: 1.5px;
-      background: linear-gradient(90deg, var(--terra), var(--gold));
-    }
+    .hero-copy { max-width: 780px; display: flex; flex-direction: column; gap: 22px; }
+    .hero-copy > * { animation: rise 1.1s var(--ease) both; }
+    .hero-copy > :nth-child(2) { animation-delay: .12s; }
+    .hero-copy > :nth-child(3) { animation-delay: .24s; }
+    .hero-copy > :nth-child(4) { animation-delay: .36s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
     .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 4.5vw, 5.2rem);
-      line-height: 1.12;
-      color: var(--forest);
-      margin-bottom: 2rem;
-      letter-spacing: -0.01em;
-      opacity: 0; animation: fadeSlideUp 0.8s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(50px, 7.4vw, 104px); line-height: .96; letter-spacing: -.015em;
     }
-    .hero-title em {
-      color: var(--terra); font-style: italic;
-      background: linear-gradient(135deg, var(--terra), var(--terra-light));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero-sub { font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; max-width: 560px; color: rgba(251,250,247,.9); }
+    .rating-card {
+      display: flex; align-items: center; gap: 16px; padding: 16px 22px 16px 16px;
+      background: rgba(251,250,247,.95); color: var(--pine); text-decoration: none; border-radius: var(--radius);
+      animation: rise 1.1s var(--ease) .5s both;
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
     }
-    .hero-subtitle {
-      font-size: clamp(1.05rem, 1.15vw, 1.3rem); color: var(--muted);
-      max-width: 480px; margin-bottom: 3rem;
-      font-weight: 300; line-height: 1.85;
-      opacity: 0; animation: fadeSlideUp 0.8s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .rating-card:hover { color: var(--pine); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,.18); }
+    .score {
+      display: inline-flex; align-items: center; justify-content: center; flex: none;
+      width: 56px; height: 56px; border-radius: var(--radius);
+      background: var(--pine); color: var(--cone); font-weight: 700; font-size: 20px;
     }
-    .hero-cta-group {
-      display: flex; gap: 1.2rem; align-items: center;
-      opacity: 0; animation: fadeSlideUp 0.8s 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--forest); color: #fff;
-      padding: 1rem 2.2rem; border-radius: 50px;
-      text-decoration: none; font-size: 0.88rem; font-weight: 500;
-      letter-spacing: 0.04em;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      display: inline-block;
-      box-shadow: 0 4px 20px rgba(45,58,46,0.25);
-      position: relative; overflow: hidden;
-    }
-    .btn-primary::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1));
-    }
-    .btn-primary:hover {
-      background: var(--terra);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(184,112,72,0.35);
-    }
-    .btn-secondary {
-      color: var(--forest); font-size: 0.88rem; font-weight: 500;
-      text-decoration: none; letter-spacing: 0.04em;
-      display: flex; align-items: center; gap: 0.6rem;
-      transition: all 0.3s;
-    }
-    .btn-secondary:hover { color: var(--terra); gap: 0.9rem; }
-    .btn-secondary::after { content: '\2192'; font-size: 1.15rem; transition: inherit; }
+    .rating-card strong { display: block; font-size: 16px; }
+    .rating-card small { display: block; font-size: 13px; color: var(--ink-soft); }
 
-    .hero-image {
-      width: calc(100% - 6rem); max-width: 1400px;
-      margin: 96px auto 0;
-      aspect-ratio: 2031 / 1069;
-      position: relative; overflow: hidden;
-      border-radius: 24px;
-      box-shadow: 0 24px 60px rgba(58,46,38,0.14);
+    /* ─── At a glance ─── */
+    .glance { background: var(--paper); border-bottom: 1px solid var(--line-soft); }
+    .glance ul {
+      max-width: var(--wrap); margin: 0 auto; padding: 24px var(--gutter);
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 28px;
+      font-size: 15px; font-weight: 600;
     }
-    .hero-image img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center;
-      transition: transform 8s ease-out;
-      border-radius: 24px;
-    }
-    .hero-image:hover img { transform: scale(1.03); }
-    .hero-image::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(45,58,46,0.08) 0%, transparent 30%, transparent 70%, rgba(45,58,46,0.12) 100%);
-      pointer-events: none;
-      border-radius: 24px;
-    }
+    .glance li { display: flex; align-items: center; gap: 10px; }
+    .glance svg { color: var(--hop); flex: none; }
 
-    .hero-badge {
-      position: absolute; top: 1.5rem; right: 1.5rem; z-index: 2;
-      background: rgba(255,255,255,0.9); backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 18px; padding: 1rem 1.4rem;
-      display: flex; align-items: center; gap: 1rem;
-      box-shadow: 0 8px 40px rgba(58,46,38,0.15);
-      border: 1px solid rgba(255,255,255,0.5);
-      opacity: 0; animation: fadeSlideUp 0.6s 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      text-decoration: none; color: inherit;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+    /* ─── Sections ─── */
+    .section { padding-block: clamp(80px, 11vw, 140px); }
+    .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 48px; margin-bottom: clamp(32px, 4vw, 52px); }
+    .section-head > div { display: flex; flex-direction: column; gap: 16px; max-width: 720px; }
+    .section-head .lede { max-width: 440px; }
+
+    /* ═══════════════════════════════════════════
+       Reviews
+       ═══════════════════════════════════════════ */
+    .reviews { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+    .review-feature { display: flex; flex-direction: column; gap: 26px; position: sticky; top: 110px; }
+    .review-feature blockquote {
+      font-family: var(--serif); font-size: clamp(32px, 3.6vw, 50px); line-height: 1.12;
     }
-    .hero-badge:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 46px rgba(58,46,38,0.22);
+    .review-who { font-size: 15px; color: var(--ink-mute); }
+    .review-who strong { color: var(--pine); font-weight: 600; }
+    .score-line { display: flex; align-items: center; gap: 14px; }
+    .score-line strong { display: block; font-size: 16px; }
+    .score-line small { display: block; font-size: 14px; color: var(--ink-mute); }
+    .review-list li { padding: 22px 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; }
+    .review-list li:last-child { border-bottom: 1px solid var(--line); }
+    .review-list blockquote { font-size: 17px; line-height: 1.55; }
+    .review-list .review-who { font-size: 14px; }
+    .review-note { margin-top: 18px; font-size: 14px; color: var(--ink-mute); }
+
+    /* ═══════════════════════════════════════════
+       The apartment — story + chapters
+       ═══════════════════════════════════════════ */
+    .story {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 96px);
+      align-items: end; padding-bottom: clamp(72px, 9vw, 120px);
     }
-    .badge-icon {
-      width: 46px; height: 46px; border-radius: 14px;
-      background: linear-gradient(135deg, var(--forest), var(--sage));
+    .story > div { display: flex; flex-direction: column; gap: 18px; }
+    .story-note {
+      font-size: 15px; line-height: 1.6; color: var(--ink-soft);
+      padding: 18px 20px; background: var(--paper); border-radius: var(--radius);
+    }
+    .story-note strong { color: var(--pine); }
+
+    .chapters { display: flex; flex-direction: column; gap: clamp(88px, 11vw, 140px); }
+    .chapter { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: clamp(32px, 4.5vw, 64px); align-items: center; }
+    .chapter.flip { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+    .chapter.flip .chapter-media { order: 2; }
+    .chapter-copy { display: flex; flex-direction: column; gap: 18px; }
+    .chapter-copy .display { font-size: clamp(38px, 4.4vw, 60px); }
+    .chapter-stack { display: flex; flex-direction: column; gap: 32px; }
+    .chapter-stack .section-head { margin-bottom: 0; }
+    .photo-grid { display: grid; gap: 16px; }
+    .photo-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .photo-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .photo-grid.five { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+
+    .photo {
+      position: relative; display: block; width: 100%; padding: 0; border: 0; background: var(--line-soft);
+      border-radius: var(--radius); overflow: hidden; cursor: zoom-in;
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+    .photo:hover img { transform: scale(1.035); }
+    .photo::after {
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
+      box-shadow: inset 0 0 0 1px rgba(24,38,31,.06); pointer-events: none;
+    }
+    .h-xl { height: clamp(360px, 46vw, 640px); }
+    .h-lg { height: clamp(320px, 38vw, 540px); }
+    .h-md { height: clamp(300px, 32vw, 460px); }
+    .h-sm { height: clamp(150px, 14vw, 200px); }
+    .inset-photo { width: min(240px, 60%); height: 160px; }
+    .chapter-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      display: inline-flex; align-items: center; padding: 7px 13px; border: 1px solid var(--line);
+      border-radius: 999px; font-size: 13.5px; font-weight: 600; color: var(--pine); background: transparent;
+    }
+    .extras { margin-top: clamp(64px, 8vw, 100px); display: flex; flex-direction: column; gap: 20px; }
+    .extras-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .extras-head h3 { font-family: var(--serif); font-weight: 400; font-size: 32px; }
+
+    /* ═══════════════════════════════════════════
+       Booking — two ways
+       ═══════════════════════════════════════════ */
+    .book { background: var(--paper); border-block: 1px solid var(--line-soft); }
+    .book-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .book-card {
+      display: flex; flex-direction: column; gap: 18px; padding: clamp(28px, 3.4vw, 44px);
+      border: 1px solid var(--line); border-radius: var(--radius); background: var(--linen);
+    }
+    .book-card.direct { background: var(--pine); color: var(--linen); border-color: var(--pine); }
+    .book-card h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 3vw, 42px); line-height: 1.05; }
+    .book-card p { color: var(--ink-soft); font-size: 16px; }
+    .book-card.direct p { color: rgba(244,242,236,.78); }
+    .book-card .btn-row { margin-top: auto; padding-top: 8px; }
+    .ticks li { display: flex; gap: 12px; align-items: flex-start; padding: 7px 0; font-size: 15.5px; }
+    .ticks svg { flex: none; margin-top: 4px; color: var(--hop); }
+    .direct .ticks svg { color: var(--cone); }
+    .prices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .price {
+      display: flex; flex-direction: column; gap: 2px; padding: 18px 18px 16px;
+      border: 1px solid rgba(244,242,236,.18); border-radius: var(--radius);
+    }
+    .price-amount { font-family: var(--serif); font-size: 46px; line-height: 1; color: var(--paper); white-space: nowrap; }
+    .price-amount small { font-family: var(--sans); font-size: 14px; color: rgba(244,242,236,.7); margin-left: 4px; }
+    .price-label { font-size: 14px; color: rgba(244,242,236,.78); }
+    .price.best { border-color: var(--cone); }
+    .price.best .price-label { color: var(--cone); font-weight: 600; }
+    .fine { font-size: 13.5px; color: rgba(244,242,236,.66); }
+
+    /* ═══════════════════════════════════════════
+       Your days here (dark band)
+       ═══════════════════════════════════════════ */
+    .days { background: var(--pine); color: var(--linen); }
+    .days-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+    .day { display: flex; flex-direction: column; gap: 12px; }
+    .day .photo { height: clamp(260px, 26vw, 360px); background: rgba(244,242,236,.08); }
+    .day h3 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.1; }
+    .day p { font-size: 14.5px; color: rgba(244,242,236,.7); line-height: 1.55; }
+    .nearby {
+      margin-top: clamp(56px, 7vw, 88px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0 48px; border-top: 1px solid rgba(244,242,236,.14);
+    }
+    .nearby li {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      padding: 18px 0; border-bottom: 1px solid rgba(244,242,236,.14); font-size: 15.5px;
+    }
+    .nearby li span:first-child { color: rgba(244,242,236,.92); }
+    .nearby li span:last-child { color: var(--cone); font-weight: 600; white-space: nowrap; font-size: 14.5px; }
+
+    /* ═══════════════════════════════════════════
+       Amenities
+       ═══════════════════════════════════════════ */
+    .amenities { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 48px; }
+    .amenity { display: flex; gap: 16px; padding: 22px 0; border-top: 1px solid var(--line); }
+    .amenity svg { flex: none; color: var(--hop); margin-top: 2px; }
+    .amenity h3 { font-size: 16px; font-weight: 700; line-height: 1.35; }
+    .amenity p { font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); margin-top: 4px; }
+
+    /* ═══════════════════════════════════════════
+       Location
+       ═══════════════════════════════════════════ */
+    .location { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: clamp(40px, 6vw, 88px); align-items: start; }
+    .location-copy { display: flex; flex-direction: column; gap: 20px; }
+    .distances { display: grid; grid-template-columns: 1fr auto; margin-top: 8px; }
+    .distances dt, .distances dd { padding: 15px 0; border-top: 1px solid var(--line); font-size: 15.5px; }
+    .distances dd { font-weight: 700; text-align: right; }
+    .distances dt:last-of-type, .distances dd:last-of-type { border-bottom: 1px solid var(--line); }
+    address { font-style: normal; font-size: 15.5px; color: var(--ink-soft); }
+    address strong { color: var(--pine); }
+    .map {
+      position: relative; min-height: 460px; height: 100%; border-radius: var(--radius); overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 46%, rgba(52,80,61,.16) 0 70px, transparent 71px),
+        repeating-linear-gradient(115deg, transparent 0 46px, rgba(52,80,61,.07) 46px 48px),
+        repeating-linear-gradient(25deg, transparent 0 62px, rgba(52,80,61,.06) 62px 64px),
+        #E6E6DA;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem;
-      box-shadow: 0 4px 12px rgba(45,58,46,0.2);
-      flex-shrink: 0;
     }
-    .badge-text { font-size: 0.78rem; line-height: 1.4; color: var(--muted); }
-    .badge-text strong { display: block; color: var(--forest); font-size: 0.95rem; }
+    .map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: saturate(.75); }
+    .map-facade { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; padding: 24px; }
+    .map-pin {
+      width: 56px; height: 56px; border-radius: 999px; background: var(--hop); color: var(--paper);
+      display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 10px rgba(52,80,61,.15);
+    }
+    .map-facade strong { font-size: 16px; }
+    .map-facade small { font-size: 14px; color: var(--ink-mute); }
 
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ─── SECTION COMMON ─── */
-    section { padding: 7rem 6rem; }
-    .section-label {
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--terra);
-      margin-bottom: 1rem;
-      display: flex; align-items: center; gap: 0.7rem;
-    }
-    .section-label::before {
-      content: ''; display: block; width: 28px; height: 1.5px;
-      background: linear-gradient(90deg, var(--terra), var(--gold));
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 3.2rem);
-      color: var(--forest); line-height: 1.22;
-      margin-bottom: 1.4rem;
-      letter-spacing: -0.01em;
-      font-weight: 600;
-    }
-
-    /* ─── ABOUT ─── */
-    #about {
-      background: var(--warm-white);
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center;
-    }
-    .about-images {
-      position: relative; height: 520px;
-    }
-    .about-img-main, .about-img-accent {
-      position: absolute; border-radius: 24px; overflow: hidden;
-      box-shadow: 0 24px 60px rgba(58,46,38,0.14);
-    }
-    .about-img-main {
-      width: 78%; height: 84%;
-      top: 0; left: 0;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .about-img-main:hover { transform: scale(1.02); }
-    .about-img-accent {
-      width: 52%; height: 48%;
-      bottom: 0; right: 0;
-      border: 5px solid var(--warm-white);
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 2;
-    }
-    .about-img-accent:hover { transform: scale(1.03) rotate(1deg); }
-    .about-img-main img,
-    .about-img-accent img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    /* decorative dot pattern */
-    .about-images::before {
-      content: '';
-      position: absolute; top: -16px; right: 20%;
-      width: 80px; height: 80px;
-      background-image: radial-gradient(var(--beige-dark) 1.5px, transparent 1.5px);
-      background-size: 12px 12px;
-      opacity: 0.5; z-index: -1;
-    }
-    .about-text p {
-      color: var(--muted); margin-bottom: 1.3rem; font-size: 1.02rem;
-      font-weight: 300; line-height: 1.85;
-    }
-    .about-text .section-title { color: var(--forest); }
-    .fun-fact {
-      background: linear-gradient(135deg, var(--cream), rgba(232,221,208,0.3));
-      border-left: 3px solid var(--terra);
-      border-radius: 0 14px 14px 0; padding: 1.1rem 1.4rem;
-      margin-bottom: 1.3rem;
-      font-size: 0.92rem; color: var(--forest); font-weight: 400;
-      font-style: italic;
-    }
-    .about-stats {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
-      margin-top: 2.5rem;
-    }
-    .stat-card {
-      background: var(--cream); border-radius: 18px;
-      padding: 1.5rem; text-align: center;
-      border: 1px solid var(--beige);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .stat-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(58,46,38,0.08);
-    }
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem; color: var(--terra); font-weight: 600;
-    }
-    .stat-label { font-size: 0.78rem; color: var(--muted-soft); margin-top: 0.25rem; letter-spacing: 0.02em; }
-
-    /* ─── GALLERY ─── */
-    #gallery { background: var(--cream); }
-    .gallery-intro { max-width: 540px; margin-bottom: 3.5rem; }
-    .gallery-intro p { color: var(--muted); font-weight: 300; font-size: 1.02rem; line-height: 1.85; }
-    .gallery-intro .section-title { color: var(--forest); }
-
-    .gallery-item {
-      border-radius: 16px; overflow: hidden;
-      cursor: pointer; position: relative;
-      /* button reset */
-      border: none; padding: 0; margin: 0;
-      background: var(--beige); font: inherit; color: inherit;
-      display: block; width: 100%;
-    }
-    .gallery-item img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      display: block;
-    }
-    .gallery-item::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(45,58,46,0.5));
-      opacity: 0; transition: opacity 0.4s;
-      pointer-events: none;
-    }
-    .gallery-item:hover img,
-    .gallery-item:focus-visible img { transform: scale(1.06); }
-    .gallery-item:hover::after,
-    .gallery-item:focus-visible::after { opacity: 1; }
-    /* zoom icon on hover */
-    .gallery-item::before {
-      content: '\2922'; /* magnify arrow */
-      position: absolute; bottom: 12px; right: 14px;
-      color: #fff; font-size: 1.2rem; z-index: 2;
-      opacity: 0; transition: all 0.4s;
-      transform: translateY(6px);
-    }
-    .gallery-item:hover::before,
-    .gallery-item:focus-visible::before { opacity: 0.9; transform: translateY(0); }
-
-    .gallery-note {
-      text-align: center; margin-top: 2.5rem;
-      font-size: 0.84rem; color: #9A8A80;
-      font-style: italic;
-    }
-
-    /* ─── GALLERY CATEGORIES ─── */
-    .gallery-category {
-      margin-top: 3rem;
-    }
-    .gallery-category-label {
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--sage);
-      margin-bottom: 1.2rem;
-      display: flex; align-items: center; gap: 0.6rem;
-    }
-    .gallery-category-label::before {
-      content: ''; display: block; width: 20px; height: 1.5px;
-      background: var(--sage-light);
-    }
-    .gallery-grid-uniform {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-    .gallery-grid-uniform .gallery-item {
-      height: 220px;
-    }
-    /* "Show all" toggle – only needed on small screens */
-    .gallery-more {
-      display: none;
-      margin: 1.2rem auto 0;
-      background: var(--warm-white); color: var(--forest);
-      border: 1px solid var(--beige-dark);
-      border-radius: 50px; padding: 0.7rem 1.6rem;
-      font-family: inherit; font-size: 0.8rem; font-weight: 500;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      cursor: pointer; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .gallery-more:hover { background: var(--forest); color: #fff; border-color: var(--forest); }
-
-    @media (max-width: 768px) {
-      .gallery-grid-uniform { grid-template-columns: 1fr 1fr; }
-      .gallery-grid-uniform .gallery-item { height: 170px; }
-      .gallery-category[data-collapsible] .gallery-more { display: block; }
-      .gallery-category.is-collapsed .gallery-grid-uniform > .gallery-item:nth-child(n+7) { display: none; }
-    }
-    @media (max-width: 480px) {
-      .gallery-grid-uniform { grid-template-columns: 1fr; }
-      .gallery-grid-uniform .gallery-item { height: 220px; }
-      .gallery-category.is-collapsed .gallery-grid-uniform > .gallery-item:nth-child(n+5) { display: none; }
-    }
-
-    /* ─── AMENITIES ─── */
-    #amenities {
-      background: var(--forest);
-      color: var(--cream);
-      position: relative; overflow: hidden;
-    }
-    /* subtle radial glow */
-    #amenities::before {
-      content: ''; position: absolute;
-      top: -30%; right: -10%; width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(90,122,92,0.2), transparent 70%);
-      pointer-events: none;
-    }
-    #amenities .section-label { color: var(--gold); }
-    #amenities .section-label::before { background: linear-gradient(90deg, var(--gold), var(--terra-light)); }
-    #amenities .section-title { color: var(--warm-white); }
-    .amenities-intro { color: rgba(250,247,242,0.65); font-weight: 300; max-width: 500px; margin-bottom: 3.5rem; font-size: 1.02rem; line-height: 1.85; }
-
-    .amenities-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem;
-      position: relative; z-index: 1;
-    }
-    .amenity-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px; padding: 1.8rem 1.5rem;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(4px);
-    }
-    .amenity-card:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.18);
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.15);
-    }
-    .amenity-icon {
-      font-size: 1.7rem; margin-bottom: 1rem;
-      width: 48px; height: 48px;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,0.06); border-radius: 14px;
-    }
-    .amenity-name {
-      font-weight: 600; font-size: 0.92rem;
-      color: var(--warm-white); margin-bottom: 0.4rem;
-      letter-spacing: 0.01em;
-      font-family: 'Inter', sans-serif;
-    }
-    .amenity-desc { font-size: 0.8rem; color: rgba(250,247,242,0.55); line-height: 1.6; }
-
-    /* ─── LOCATION ─── */
-    #location {
-      background: var(--cream);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
-      align-items: center;
-    }
-    .location-text p { color: var(--muted); font-weight: 300; font-size: 1.02rem; margin-bottom: 1.3rem; line-height: 1.85; }
-    .location-text .section-title { color: var(--forest); }
-    .location-highlights { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.8rem; }
-    .location-item {
-      display: flex; align-items: flex-start; gap: 1rem;
-      padding: 1rem 1.2rem; background: var(--warm-white);
-      border-radius: 16px; border: 1px solid var(--beige);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .location-item:hover {
-      transform: translateX(6px);
-      box-shadow: 0 4px 20px rgba(58,46,38,0.06);
-      border-color: var(--beige-dark);
-    }
-    .location-item-icon {
-      font-size: 1.2rem; flex-shrink: 0; margin-top: 0.15rem;
-      width: 40px; height: 40px;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--cream); border-radius: 12px;
-    }
-    .location-item-text strong {
-      display: block; color: var(--forest); font-size: 0.9rem; margin-bottom: 0.1rem;
-    }
-    .location-item-text span { font-size: 0.8rem; color: var(--muted-soft); }
-
-    /* ─── SPA TRIO ─── */
-    .spa-trio {
-      background: var(--warm-white);
-      border: 1px solid var(--beige);
-      border-radius: 20px; padding: 1.5rem;
-      margin-top: 0.2rem;
-    }
-    .spa-trio-header {
-      display: flex; align-items: center; gap: 0.5rem;
-      margin-bottom: 1rem; padding-left: 0.3rem;
-    }
-    .spa-trio-icon { font-size: 1.1rem; }
-    .spa-trio-header strong {
-      color: var(--terra); font-size: 0.72rem;
-      letter-spacing: 0.16em; text-transform: uppercase;
-    }
-    .spa-trio-cards {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem;
-    }
-    .spa-card {
-      background: var(--cream);
-      border: 1px solid var(--beige);
-      border-radius: 14px; padding: 1.1rem 1rem;
-      text-align: center;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .spa-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(58,46,38,0.08);
-    }
-    .spa-card-distance {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; font-weight: 600;
-      color: var(--terra); line-height: 1.2;
-    }
-    .spa-card-name {
-      color: var(--forest); font-size: 0.85rem;
-      font-weight: 600; margin: 0.3rem 0 0.2rem;
-    }
-    .spa-card-detail {
-      color: var(--muted-soft); font-size: 0.72rem;
-      line-height: 1.4;
-    }
-    @media (max-width: 480px) {
-      .spa-trio-cards { grid-template-columns: 1fr; }
-    }
-
-    .map-container {
-      border-radius: 24px; overflow: hidden;
-      box-shadow: 0 24px 60px rgba(58,46,38,0.1);
-      height: 460px;
-      border: 1px solid var(--beige);
-      position: relative;
-    }
-    .map-container iframe {
-      width: 100%; height: 100%; border: none; display: block;
-    }
-    .map-directions {
-      position: absolute; bottom: 1rem; left: 50%;
-      transform: translateX(-50%);
-      background: var(--forest); color: #fff;
-      padding: 0.7rem 1.5rem; border-radius: 50px;
-      text-decoration: none; font-size: 0.8rem; font-weight: 500;
-      letter-spacing: 0.03em; white-space: nowrap;
-      box-shadow: 0 6px 24px rgba(45,58,46,0.35);
-      transition: background 0.3s, box-shadow 0.3s;
-    }
-    .map-directions:hover { background: var(--terra); box-shadow: 0 8px 30px rgba(184,112,72,0.4); }
-
-    /* ─── FAQ ─── */
-    #faq { background: var(--warm-white); }
-    .faq-head { max-width: 620px; margin: 0 auto 3rem; text-align: center; }
-    .faq-head .section-label { justify-content: center; }
-    .faq-head .section-label::before { display: none; }
-    .faq-head .section-title { color: var(--forest); }
-    .faq-head p { color: var(--muted); font-weight: 300; font-size: 1.02rem; line-height: 1.85; }
-    .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.8rem; }
-    .faq-item {
-      background: var(--cream); border: 1px solid var(--beige);
-      border-radius: 16px; overflow: hidden;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-    .faq-item[open] { border-color: var(--beige-dark); box-shadow: 0 8px 28px rgba(58,46,38,0.06); }
+    /* ═══════════════════════════════════════════
+       FAQ
+       ═══════════════════════════════════════════ */
+    .faq { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+    .faq-intro { display: flex; flex-direction: column; gap: 18px; position: sticky; top: 110px; }
+    .faq-item { border-top: 1px solid var(--line); }
+    .faq-item:last-child { border-bottom: 1px solid var(--line); }
     .faq-item summary {
-      cursor: pointer; list-style: none;
-      padding: 1.15rem 1.5rem;
-      font-size: 0.95rem; font-weight: 500; color: var(--forest);
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-      transition: color 0.25s;
+      list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px;
+      padding: 22px 0; font-size: 18px; font-weight: 600; line-height: 1.4;
     }
     .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary:hover { color: var(--terra); }
+    .faq-item summary:hover { color: var(--hop); }
     .faq-item summary::after {
-      content: '+'; font-size: 1.4rem; line-height: 1;
-      color: var(--terra); flex-shrink: 0;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      content: ''; flex: none; width: 14px; height: 14px;
+      background:
+        linear-gradient(currentColor, currentColor) center / 14px 1.5px no-repeat,
+        linear-gradient(currentColor, currentColor) center / 1.5px 14px no-repeat;
+      transition: transform .3s var(--ease);
     }
     .faq-item[open] summary::after { transform: rotate(45deg); }
-    .faq-answer {
-      padding: 0 1.5rem 1.3rem;
-      font-size: 0.92rem; font-weight: 300; line-height: 1.8;
-      color: var(--muted);
-    }
-    .faq-answer a { color: var(--terra); text-decoration: underline; text-underline-offset: 2px; }
-    .faq-answer a:hover { color: var(--forest); }
-    .faq-figure { margin: 1.1rem 0 0; }
-    .faq-figure img {
-      width: 100%; height: auto; display: block;
-      border-radius: 12px; border: 1px solid var(--beige);
-    }
-    .faq-figure figcaption {
-      font-size: 0.78rem; color: var(--muted-soft);
-      margin-top: 0.55rem; font-style: italic; text-align: center;
-    }
+    .faq-answer { padding: 0 0 26px; max-width: 680px; color: var(--ink-soft); font-size: 16px; line-height: 1.7; }
+    .faq-answer strong { color: var(--pine); }
+    .faq-figure { margin-top: 18px; }
+    .faq-figure img { width: 100%; border-radius: var(--radius); }
+    .faq-figure figcaption { margin-top: 8px; font-size: 14px; color: var(--ink-mute); }
 
-    /* ─── GUEST REVIEWS ─── */
-    #reviews { background: var(--cream); }
-    .reviews-head { max-width: 640px; margin: 0 auto 3.5rem; text-align: center; }
-    .reviews-head .section-label { justify-content: center; }
-    .reviews-head .section-label::before { display: none; }
-    .reviews-head .section-title { color: var(--forest); }
-    .reviews-head p { color: var(--muted); font-weight: 300; font-size: 1.02rem; line-height: 1.85; }
+    /* ═══════════════════════════════════════════
+       Closing CTA + footer
+       ═══════════════════════════════════════════ */
+    .closing { position: relative; isolation: isolate; overflow: hidden; background: var(--pine); color: var(--paper); text-align: center; }
+    .closing img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+    .closing::after { content: ''; position: absolute; inset: 0; z-index: -1; background: rgba(24,38,31,.58); }
+    .closing .wrap { padding-block: clamp(110px, 14vw, 170px); display: flex; flex-direction: column; align-items: center; gap: 22px; }
+    .closing h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(48px, 7vw, 88px); line-height: 1; }
+    .closing p { font-size: 18px; max-width: 560px; color: rgba(251,250,247,.9); }
+    .closing .btn-row { justify-content: center; }
 
-    .reviews-score {
-      display: inline-flex; align-items: center; gap: 0.9rem;
-      background: var(--warm-white); border: 1px solid var(--beige);
-      border-radius: 50px; padding: 0.7rem 1.4rem 0.7rem 0.7rem;
-      margin-bottom: 1.6rem;
-    }
-    .reviews-score-badge {
-      background: #003580; color: #fff;
-      font-weight: 700; font-size: 1.05rem;
-      padding: 0.45rem 0.7rem; border-radius: 10px 10px 10px 2px;
-      line-height: 1;
-    }
-    .reviews-score-text { font-size: 0.82rem; color: var(--muted-soft); text-align: left; line-height: 1.35; }
-    .reviews-score-text strong { display: block; color: var(--forest); font-size: 0.92rem; }
+    .site-footer { background: var(--pine); color: rgba(244,242,236,.72); border-top: 1px solid rgba(244,242,236,.12); font-size: 14.5px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; padding-block: 56px 40px; }
+    .footer-grid h2 { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--cone); font-weight: 600; margin-bottom: 12px; }
+    .footer-grid a { color: var(--linen); text-decoration: none; }
+    .footer-grid a:hover { color: var(--cone); }
+    .footer-grid li { padding: 3px 0; }
+    .site-footer address { color: rgba(244,242,236,.72); max-width: 300px; }
+    .site-footer .brand { color: var(--linen); margin-bottom: 14px; }
+    .site-footer .brand-sub { color: var(--cone); }
+    .footer-base { border-top: 1px solid rgba(244,242,236,.12); padding-block: 20px 28px; font-size: 13px; color: rgba(244,242,236,.55); }
 
-    .reviews-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem; max-width: 1240px; margin: 0 auto;
+    /* ─── Sticky phone booking bar ─── */
+    .book-bar {
+      position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 90;
+      display: none; align-items: center; gap: 10px; padding: 8px 8px 8px 18px;
+      background: var(--paper); color: var(--pine); border-radius: 999px;
+      box-shadow: 0 10px 34px rgba(24,38,31,.24), 0 0 0 1px rgba(24,38,31,.06);
+      transform: translateY(140%); transition: transform .45s var(--ease);
     }
-    .review-card {
-      background: var(--warm-white);
-      border: 1px solid var(--beige);
-      border-radius: 20px;
-      padding: 1.7rem 1.6rem;
-      display: flex; flex-direction: column;
-      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1),
-                  box-shadow 0.35s, border-color 0.35s;
-    }
-    .review-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 40px rgba(58,46,38,0.09);
-      border-color: var(--beige-dark);
-    }
-    .review-card::before {
-      content: '\201C';
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem; line-height: 0.7;
-      color: var(--terra); opacity: 0.35;
-      margin-bottom: 0.5rem;
-    }
-    .review-card blockquote {
-      font-size: 0.95rem; line-height: 1.78; color: var(--brown);
-      font-weight: 300; margin-bottom: 1.4rem; flex-grow: 1;
-    }
-    .review-card figcaption {
-      display: flex; align-items: center; gap: 0.75rem;
-      border-top: 1px solid var(--beige); padding-top: 1.1rem;
-    }
-    .review-avatar {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--sage), var(--forest));
-      color: #fff; font-weight: 600; font-size: 0.92rem;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .review-who strong { display: block; color: var(--forest); font-size: 0.88rem; font-weight: 600; }
-    .review-who span { font-size: 0.78rem; color: var(--muted-soft); }
+    .book-bar.visible { transform: none; }
+    .book-bar-text { flex: 1 1 auto; min-width: 0; line-height: 1.2; }
+    .book-bar-text strong { display: block; font-size: 15px; }
+    .book-bar-text small { display: block; font-size: 12.5px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .book-bar .icon-btn { border-color: var(--line); }
+    .book-bar .btn { min-height: 48px; padding: 0 20px; font-size: 15px; }
 
-    .reviews-cta {
-      display: block; text-align: center; margin-top: 2.6rem;
-      color: var(--terra); font-size: 0.88rem; font-weight: 500;
-      text-decoration: none; letter-spacing: 0.03em;
-      transition: color 0.25s;
-    }
-    .reviews-cta:hover { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
-
-    @media (max-width: 1024px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px)  { .reviews-grid { grid-template-columns: 1fr; } }
-
-    /* ─── CONTACT ─── */
-    #contact {
-      background: var(--warm-white);
-      text-align: center;
-      position: relative;
-    }
-    /* top decorative gradient */
-    #contact::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--beige-dark), transparent);
-    }
-    #contact .section-label { justify-content: center; }
-    #contact .section-label::before { display: none; }
-    #contact .section-title { max-width: 600px; margin: 0 auto 1.2rem; color: var(--forest); }
-    #contact .section-subtitle {
-      color: var(--muted); font-weight: 300; font-size: 1.02rem;
-      max-width: 520px; margin: 0 auto 3.5rem; line-height: 1.85;
-    }
-    .contact-cards {
-      display: flex; gap: 1.5rem; justify-content: center;
-      flex-wrap: wrap; align-items: stretch;
-    }
-    .contact-card {
-      background: var(--cream); border: 1px solid var(--beige);
-      border-radius: 24px; padding: 2.5rem 2rem;
-      width: 280px; text-align: center;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex; flex-direction: column;
-    }
-    .contact-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 60px rgba(58,46,38,0.1);
-      border-color: var(--beige-dark);
-    }
-    .contact-card-icon {
-      font-size: 1.6rem;
-      width: 56px; height: 56px; margin: 0 auto 1.2rem;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--warm-white); border-radius: 16px;
-      border: 1px solid var(--beige);
-    }
-    .contact-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem; color: var(--forest); margin-bottom: 0.5rem;
-    }
-    .contact-card p {
-      font-size: 0.84rem; color: var(--muted-soft); margin-bottom: 1.5rem;
-      font-weight: 300; line-height: 1.65; flex-grow: 1;
-    }
-    .contact-card a.card-btn {
-      display: inline-block;
-      background: var(--forest); color: #fff;
-      padding: 0.7rem 1.7rem; border-radius: 50px;
-      text-decoration: none; font-size: 0.82rem; font-weight: 500;
-      letter-spacing: 0.03em;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 2px 12px rgba(45,58,46,0.2);
-      align-self: center;
-    }
-    .contact-card a.card-btn:hover {
-      background: var(--terra);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(184,112,72,0.3);
-    }
-    .contact-card.booking {
-      border-color: var(--beige-dark);
-      box-shadow: 0 10px 34px rgba(58,46,38,0.07);
-      position: relative;
-    }
-    .contact-card.booking::before {
-      content: 'Best way to book';
-      position: absolute; top: -0.72rem; left: 50%; transform: translateX(-50%);
-      background: var(--terra); color: #fff;
-      font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 50px;
-      white-space: nowrap;
-      box-shadow: 0 4px 14px rgba(184,112,72,0.35);
-    }
-    .contact-card.booking a.card-btn {
-      background: #003580;
-      box-shadow: 0 2px 12px rgba(0,53,128,0.25);
-    }
-    .contact-card.booking a.card-btn:hover {
-      background: var(--terra);
-      box-shadow: 0 4px 20px rgba(184,112,72,0.3);
-    }
-
-    .address-strip {
-      margin-top: 3.5rem;
-      padding: 1.2rem 2rem;
-      background: var(--cream);
-      border: 1px solid var(--beige);
-      border-radius: 50px;
-      display: inline-block;
-      font-size: 0.85rem;
-      color: var(--muted-soft);
-      font-style: normal;
-      transition: box-shadow 0.3s;
-    }
-    .address-strip:hover { box-shadow: 0 4px 20px rgba(58,46,38,0.06); }
-    .address-strip strong { color: var(--forest); }
-    .address-strip a {
-      color: var(--terra); text-decoration: none;
-      transition: color 0.2s;
-    }
-    .address-strip a:hover { color: var(--forest); }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--forest); color: rgba(250,247,242,0.55);
-      text-align: center; padding: 3rem 2rem 2.5rem;
-      font-size: 0.82rem;
-      position: relative;
-    }
-    footer::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201,169,110,0.3), transparent);
-    }
-    footer a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
-    footer a:hover { color: var(--warm-white); }
-    footer strong { color: var(--warm-white); }
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; color: var(--warm-white);
-      margin-bottom: 0.8rem; display: block;
-      letter-spacing: 0.01em;
-    }
-    .footer-logo span { color: var(--gold); }
-    .footer-divider {
-      width: 40px; height: 1.5px; margin: 1rem auto;
-      background: linear-gradient(90deg, var(--gold), var(--terra-light));
-      border: none; opacity: 0.5;
-    }
-
-    /* ─── STICKY MOBILE BOOKING BAR ─── */
-    .mobile-cta {
-      position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
-      display: none;
-      align-items: center; justify-content: space-between; gap: 1rem;
-      padding: 0.8rem 1.2rem calc(0.8rem + env(safe-area-inset-bottom));
-      background: rgba(250,247,242,0.97);
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      border-top: 1px solid var(--beige);
-      box-shadow: 0 -4px 24px rgba(58,46,38,0.08);
-      transform: translateY(110%);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .mobile-cta.visible { transform: translateY(0); }
-    .mobile-cta-text { font-size: 0.75rem; line-height: 1.35; color: var(--muted); }
-    .mobile-cta-text strong { display: block; color: var(--forest); font-size: 0.86rem; }
-    .mobile-cta .btn-primary { padding: 0.75rem 1.5rem; font-size: 0.8rem; white-space: nowrap; }
-
-    /* ─── BACK TO TOP ─── */
-    .back-to-top {
-      position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 95;
-      width: 46px; height: 46px; border-radius: 50%;
-      background: var(--forest); color: #fff;
-      border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; line-height: 1;
-      box-shadow: 0 6px 24px rgba(45,58,46,0.3);
-      opacity: 0; pointer-events: none;
-      transform: translateY(12px);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-    .back-to-top:hover { background: var(--terra); }
-
-    /* ─── LIGHTBOX ─── */
+    /* ─── Lightbox ─── */
     .lightbox {
-      position: fixed; inset: 0; z-index: 300;
-      background: rgba(20,16,12,0.94); backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      align-items: center; justify-content: center;
-      opacity: 0;
-      display: flex;
-      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .lightbox[hidden] { display: none; }
-    .lightbox.open { opacity: 1; }
-    .lightbox img {
-      max-width: 88vw; max-height: 80vh;
-      border-radius: 14px; object-fit: contain;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.5);
-      transform: scale(0.92); opacity: 0;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .lightbox.open img { transform: scale(1); opacity: 1; }
-    .lightbox-close, .lightbox-nav {
-      background: rgba(255,255,255,0.08); border: none;
-      color: #fff; cursor: pointer; line-height: 1;
+      position: fixed; inset: 0; z-index: 300; background: rgba(15,22,18,.96); color: var(--linen);
       display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
-      opacity: 0.65; transition: opacity 0.25s, background 0.25s;
-      font-family: inherit;
+      opacity: 0; transition: opacity .3s var(--ease);
     }
-    .lightbox-close {
-      position: absolute; top: 1.5rem; right: 1.5rem;
-      font-size: 1.4rem; width: 46px; height: 46px;
+    .lightbox.open { opacity: 1; }
+    .lightbox[hidden] { display: none; }
+    .lightbox figure { display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 92vw; }
+    .lightbox img { max-width: 92vw; max-height: 80vh; width: auto; height: auto; object-fit: contain; border-radius: 2px; }
+    .lightbox figcaption { font-size: 15px; color: rgba(244,242,236,.8); text-align: center; }
+    .lb-btn {
+      position: absolute; display: inline-flex; align-items: center; justify-content: center;
+      width: 52px; height: 52px; border-radius: 999px; border: 1px solid rgba(244,242,236,.3);
+      background: rgba(15,22,18,.4); color: var(--linen); cursor: pointer;
     }
-    .lightbox-close:hover { opacity: 1; background: rgba(255,255,255,0.18); }
-    .lightbox-nav {
-      position: absolute;
-      top: 50%; transform: translateY(-50%);
-      font-size: 2rem;
-      width: 52px; height: 52px;
-      user-select: none;
-    }
-    .lightbox-nav:hover { opacity: 1; background: rgba(255,255,255,0.16); }
-    #lightboxPrev { left: 1.5rem; }
-    #lightboxNext { right: 1.5rem; }
+    .lb-btn:hover { background: rgba(244,242,236,.12); }
+    .lb-close { top: 18px; right: 18px; }
+    .lb-prev { left: 18px; top: 50%; transform: translateY(-50%); }
+    .lb-next { right: 18px; top: 50%; transform: translateY(-50%); }
+    .lb-count { position: absolute; top: 30px; left: 24px; font-size: 14px; letter-spacing: .08em; color: rgba(244,242,236,.7); }
 
-    .lightbox-caption {
-      position: absolute; bottom: 3.4rem; left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255,255,255,0.92); font-size: 0.9rem;
-      text-align: center; max-width: 80vw;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
-    }
-    .lightbox-counter {
-      position: absolute; bottom: 1.5rem; left: 50%;
-      transform: translateX(-50%);
-      color: rgba(255,255,255,0.5); font-size: 0.8rem;
-      letter-spacing: 0.1em; font-weight: 500;
-    }
+    /* ─── Scroll reveal ─── */
+    .js .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+    .js .reveal.visible { opacity: 1; transform: none; }
+    .js .reveal.d1 { transition-delay: .08s; }
+    .js .reveal.d2 { transition-delay: .16s; }
+    .js .reveal.d3 { transition-delay: .24s; }
 
-    /* ─── RESPONSIVE ─── */
-    @media (min-width: 1400px) {
-      body { font-size: 1.05rem; }
-      .btn-primary { padding: 1.1rem 2.6rem; font-size: 0.95rem; }
-      .btn-secondary { font-size: 0.95rem; }
-      .nav-links a { font-size: 0.85rem; }
-      .about-text p, .location-text p, .gallery-intro p, .amenities-intro { font-size: 1.1rem; }
-      .amenity-name { font-size: 1rem; }
-      .amenity-desc { font-size: 0.88rem; }
-      .contact-card h3 { font-size: 1.3rem; }
-      .contact-card p { font-size: 0.92rem; }
+    /* ═══════════════════════════════════════════
+       Responsive
+       ═══════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .nav-links { display: none; }
+      .menu-btn { display: inline-flex; }
+      .days-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .amenities { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nearby { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .photo-grid.five { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .photo-grid.five > :nth-child(n+4) { display: none; }
     }
-
-    /* 7 nav items need tighter spacing before the hamburger kicks in */
-    @media (max-width: 1150px) {
-      nav, nav.scrolled { padding-left: 1.8rem; padding-right: 1.8rem; }
-      .nav-links { gap: 1.35rem; }
-      .nav-links a { font-size: 0.74rem; letter-spacing: 0.07em; }
-      .nav-book { padding: 0.55rem 1.2rem; }
-      .nav-logo { font-size: 1.15rem; }
-      .nav-logo img { height: 34px; width: 34px; }
+    @media (max-width: 860px) {
+      :root { --nav-h: 72px; }
+      body { font-size: 16px; }
+      .header-book, .header-actions .wa-btn { display: none; }
+      .reviews, .story, .chapter, .chapter.flip, .location, .faq, .book-grid { grid-template-columns: minmax(0, 1fr); }
+      .chapter.flip .chapter-media { order: 0; }
+      .review-feature, .faq-intro { position: static; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid > :first-child { grid-column: 1 / -1; }
+      .book-bar { display: flex; }
+      body.has-book-bar .site-footer { padding-bottom: 84px; }
+      .map { min-height: 340px; }
     }
-    /* below this the full menu no longer fits comfortably */
-    @media (max-width: 960px) {
-      .nav-hamburger { display: flex; }
-      .nav-links--desktop { display: none !important; }
-    }
-
-    @media (max-width: 1024px) {
-      section { padding: 5rem 3rem; }
-      .hero-text { padding: 3rem 3rem 3rem; }
-      #about { grid-template-columns: 1fr; gap: 3rem; }
-      .about-images { height: 360px; }
-      #location { grid-template-columns: 1fr; gap: 3rem; }
-      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    /* ─── MOBILE NAV OVERLAY ─── */
-    .mobile-nav-overlay {
-      display: none;
-      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-      background: #FAF7F2;
-      z-index: 9999;
-      justify-content: center; align-items: center;
-    }
-    .mobile-nav-overlay.open { display: flex; }
-    .mobile-nav-list {
-      list-style: none; text-align: center;
-      display: flex; flex-direction: column; gap: 0;
-    }
-    .mobile-nav-list li { padding: 0.8rem 0; }
-    .mobile-nav-list a {
-      font-size: 1rem; font-weight: 500; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--brown);
-      text-decoration: none; transition: color 0.3s;
-    }
-    .mobile-nav-list a:hover { color: var(--terra); }
-    .mobile-nav-list .nav-book {
-      display: inline-block; margin-top: 1rem;
-      background: var(--forest); color: #fff !important;
-      padding: 0.8rem 2.5rem; border-radius: 50px;
-      box-shadow: 0 2px 12px rgba(45,58,46,0.25);
-      transition: all 0.3s;
-    }
-    .mobile-nav-list .nav-book:hover { background: var(--terra); }
-
-    @media (max-width: 768px) {
-      nav { padding: 0.9rem 1.5rem; }
-      nav.scrolled { padding: 0.8rem 1.5rem; }
-      .nav-hamburger { display: flex; }
-      .nav-links--desktop { display: none !important; }
-      section { padding: 4rem 1.5rem; }
-      .hero-text { padding: 4rem 1.5rem 2.5rem; }
-      .hero-image { overflow: visible; width: calc(100% - 2rem); margin-top: 80px; border-radius: 18px; }
-      .hero-image img, .hero-image::after { border-radius: 18px; }
-      .hero-badge {
-        top: auto; bottom: -1.4rem;
-        left: auto; right: 1rem;
-        padding: 0.7rem 1rem; gap: 0.7rem; border-radius: 14px;
+    @media (max-width: 600px) {
+      .hero { max-height: none; }
+      .hero-media img { object-position: 50% 50%; }
+      .hero::after {
+        background:
+          linear-gradient(180deg, rgba(24,38,31,.55) 0%, rgba(24,38,31,0) 18%),
+          linear-gradient(0deg, rgba(24,38,31,.9) 0%, rgba(24,38,31,.6) 45%, rgba(24,38,31,0) 72%);
       }
-      .badge-icon { width: 32px; height: 32px; border-radius: 9px; font-size: 0.95rem; }
-      .badge-text { font-size: 0.75rem; }
-      .badge-text strong { font-size: 0.8rem; }
-      .amenities-grid { grid-template-columns: 1fr 1fr; }
-      .contact-cards { flex-direction: column; align-items: center; }
-      .contact-card { width: 100%; max-width: 340px; }
-      .address-strip { border-radius: 16px; font-size: 0.8rem; padding: 1rem 1.4rem; }
-      /* room for the sticky booking bar */
-      body.has-mobile-cta { padding-bottom: 76px; }
-      .mobile-cta { display: flex; }
-      /* the sticky booking bar owns this corner on mobile */
-      .back-to-top { display: none; }
-      .lightbox-nav { width: 44px; height: 44px; font-size: 1.6rem; }
-      #lightboxPrev { left: 0.6rem; }
-      #lightboxNext { right: 0.6rem; }
-      .lightbox-close { top: 1rem; right: 1rem; }
+      .hero-inner { gap: 22px; padding-bottom: 28px; }
+      .hero-copy .btn-ghost { display: none; }
+      .rating-card { padding: 12px 16px 12px 12px; }
+      .score { width: 46px; height: 46px; font-size: 17px; }
+      .glance ul { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; font-size: 14px; }
+      .photo-grid.two, .photo-grid.three { grid-template-columns: minmax(0, 1fr); }
+      .photo-grid.three > :nth-child(3) { display: none; }
+      .days-grid { grid-template-columns: minmax(0, 1fr); }
+      .day .photo { height: 260px; }
+      .amenities, .nearby { grid-template-columns: minmax(0, 1fr); }
+      .prices { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .price { padding: 16px 14px 14px; }
+      .price-amount { font-size: 34px; }
+      .price-amount small { font-size: 12.5px; margin-left: 2px; }
+      .footer-grid { grid-template-columns: minmax(0, 1fr); }
+      .btn-row .btn { flex: 1 1 auto; }
+      .lb-prev, .lb-next { top: auto; bottom: 22px; transform: none; }
+      .lb-prev { left: calc(50% - 64px); }
+      .lb-next { right: calc(50% - 64px); }
     }
-    @media (max-width: 480px) {
-      .hero-title { font-size: 2.2rem; }
-      .amenities-grid { grid-template-columns: 1fr; }
-      .about-stats { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-    }
-
-    /* ─── REDUCED MOTION ─── */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-      .reveal { opacity: 1 !important; transform: none !important; }
-      .hero-eyebrow, .hero-title, .hero-subtitle, .hero-cta-group, .hero-badge { opacity: 1 !important; }
-      .gallery-item:hover img, .hero-image:hover img,
-      .about-img-main:hover, .about-img-accent:hover { transform: none !important; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
-
+<script>document.documentElement.classList.add('js');</script>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ─── SCROLL PROGRESS ─── -->
-<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<!-- ─── HEADER ─── -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#top" class="brand" aria-label="Green Street Hideaway, back to top">
+      <span class="brand-name">Green Street</span>
+      <span class="brand-sub">Hideaway</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#apartment">The apartment</a></li>
+        <li><a href="#book">Prices &amp; booking</a></li>
+        <li><a href="#days">Your days here</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn wa-btn" href="https://wa.me/38631616002" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+      </a>
+      <a class="btn btn-primary header-book" href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener">Check availability</a>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-<!-- ─── NAV ─── -->
-<nav id="navbar" aria-label="Main navigation">
-  <a href="#hero" class="nav-logo">
-    <img src="images/gshlogo.webp" alt="" width="40" height="40">
-    Green Street <span>Hideaway</span>
-  </a>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation menu"
-          aria-expanded="false" aria-controls="mobileNavOverlay">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links nav-links--desktop" id="navLinksDesktop">
-    <li><a href="#about">About</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#amenities">Amenities</a></li>
-    <li><a href="#location">Location</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact" class="nav-book">Book Now</a></li>
-  </ul>
-</nav>
-
-<!-- Mobile nav overlay (outside nav for proper stacking) -->
-<div class="mobile-nav-overlay" id="mobileNavOverlay">
-  <ul class="mobile-nav-list">
-    <li><a href="#about">About</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#amenities">Amenities</a></li>
-    <li><a href="#location">Location</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact" class="nav-book">Book Now</a></li>
-  </ul>
+<div class="mobile-menu on-dark" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="mobile-menu-top">
+    <span class="brand"><span class="brand-name">Green Street</span><span class="brand-sub">Hideaway</span></span>
+    <button class="icon-btn" id="menuClose" type="button" aria-label="Close menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile navigation">
+    <a href="#apartment">The apartment</a>
+    <a href="#book">Prices &amp; booking</a>
+    <a href="#days">Your days here</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#location">Location</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <div class="btn-row">
+    <a class="btn btn-light" href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener">Check availability</a>
+    <a class="btn btn-ghost" href="https://wa.me/38631616002" target="_blank" rel="noopener">WhatsApp us</a>
+  </div>
 </div>
 
 <main id="main">
 
 <!-- ─── HERO ─── -->
-<section id="hero">
-  <div class="hero-image">
-    <img src="images/banner-main.webp" width="2031" height="1069"
-         alt="Green Street Hideaway — the bright open-plan living and dining area"
+<section class="hero" id="top" aria-label="Welcome">
+  <picture class="hero-media">
+    <source media="(max-width: 700px) and (orientation: portrait)" srcset="images/hero/living-portrait-900.webp" width="900" height="1452">
+    <img src="images/hero/living-1600.webp"
+         srcset="images/hero/living-960.webp 960w, images/hero/living-1600.webp 1600w, images/hero/living-2400.webp 2400w"
+         sizes="100vw" width="2400" height="1602"
+         alt="The bright open-plan living and dining room at Green Street Hideaway"
          fetchpriority="high" decoding="async">
-    <a class="hero-badge" href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html"
-       target="_blank" rel="noopener">
-      <span class="badge-icon" aria-hidden="true">&#11088;</span>
-      <span class="badge-text">
-        <strong><span data-review-score>9.8</span> Exceptional</strong>
-        <span data-review-count-text>Rated on Booking.com</span>
+  </picture>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Šempeter &middot; Savinja Valley &middot; Slovenia</p>
+      <h1 class="hero-title">A quiet hideaway in Slovenia’s <em>green valley</em></h1>
+      <p class="hero-sub">A renovated two-bedroom garden apartment among hop fields and river paths, with mountain views.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener">Check availability</a>
+        <a class="btn btn-ghost" href="#apartment">See the apartment</a>
+      </div>
+    </div>
+    <a class="rating-card" href="#reviews">
+      <span class="score" data-review-score>9.8</span>
+      <span>
+        <strong>Exceptional</strong>
+        <small data-review-count-text>Guest rating on Booking.com</small>
       </span>
     </a>
   </div>
-  <div class="hero-text">
-    <p class="hero-eyebrow">Šempeter v Savinjski Dolini &middot; Slovenia</p>
-    <h1 class="hero-title">
-      Your cosy retreat<br>in the heart of the<br><em>Savinja Valley</em>
-    </h1>
-    <p class="hero-subtitle">
-      A lovingly renovated ground-floor apartment with 2 bedrooms, a private garden and terrace, and countryside views — the perfect base for exploring Slovenia.
-    </p>
-    <div class="hero-cta-group">
-      <a href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener" class="btn-primary">Check Availability</a>
-      <a href="#gallery" class="btn-secondary">See photos</a>
-    </div>
-  </div>
 </section>
 
-<!-- ─── ABOUT ─── -->
-<section id="about">
-  <div class="about-images reveal">
-    <div class="about-img-main">
-      <img src="images/thumbs/03_dining_area-1000.webp" width="1000" height="655"
-           alt="Dining area with warm lighting" loading="lazy" decoding="async">
-    </div>
-    <div class="about-img-accent">
-      <img src="images/thumbs/17_terrace_grill-800.webp" width="800" height="969"
-           alt="Private terrace with BBQ grill" loading="lazy" decoding="async">
-    </div>
-  </div>
-  <div class="about-text">
-    <p class="section-label reveal">Our Story</p>
-    <h2 class="section-title reveal reveal-delay-1">A curated local<br>experience, just for you</h2>
-    <p class="reveal reveal-delay-2">
-      Green Street Hideaway was born from a passion for renovation and genuine hospitality. In late 2024, we transformed this ground-floor apartment into a warm, modern retreat — 2 bedrooms and 2 bathrooms, ideal for a family of four or a group of friends.
-    </p>
-    <p class="reveal reveal-delay-3">
-      Nestled in the Lower Savinja Valley, you're surrounded by rolling hills, orchards, cycling paths, and fresh countryside air. Step outside to your private garden and terrace, fire up the BBQ, and let Slovenia's unhurried charm do the rest.
-    </p>
-    <div class="fun-fact reveal reveal-delay-4">
-      <span aria-hidden="true">&#127807;</span> Did you know? "Zelena ulica" literally means <strong>Green Street</strong> in Slovenian — which is exactly where we live, and where the name was born.
-    </div>
-    <div class="about-stats reveal">
-      <div class="stat-card">
-        <div class="stat-number">2&#8211;5</div>
-        <div class="stat-label">Guests</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">2+2</div>
-        <div class="stat-label">Bedrooms &amp; Bathrooms</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number" data-review-score>9.8</div>
-        <div class="stat-label"><span aria-hidden="true">&#11088;</span> Booking.com Score</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">2024</div>
-        <div class="stat-label">Fully Renovated</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── GALLERY ─── -->
-<section id="gallery">
-  <div class="gallery-intro">
-    <p class="section-label reveal">The Space</p>
-    <h2 class="section-title reveal reveal-delay-1">Every corner designed with care</h2>
-    <p class="reveal reveal-delay-2">From the open-plan living area to the sun-drenched terrace — every detail was chosen to make you feel at home. Select any photo to explore.</p>
-  </div>
-
-  <!-- Interior -->
-  <div class="gallery-category reveal" data-collapsible>
-    <h3 class="gallery-category-label">The Apartment</h3>
-    <div class="gallery-grid-uniform">
-      <button class="gallery-item" type="button" data-full="images/02_living_room_2.webp" aria-label="View photo: Living room with comfortable seating">
-        <img src="images/thumbs/02_living_room_2-480.webp"
-             srcset="images/thumbs/02_living_room_2-480.webp 480w, images/thumbs/02_living_room_2-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="641" alt="Living room with comfortable seating" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/04_kitchen_main.webp" aria-label="View photo: Fully equipped kitchen">
-        <img src="images/thumbs/04_kitchen_main-480.webp"
-             srcset="images/thumbs/04_kitchen_main-480.webp 480w, images/thumbs/04_kitchen_main-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="641" alt="Fully equipped kitchen" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/05_kitchen_dining.webp" aria-label="View photo: Kitchen and dining overview">
-        <img src="images/thumbs/05_kitchen_dining-480.webp"
-             srcset="images/thumbs/05_kitchen_dining-480.webp 480w, images/thumbs/05_kitchen_dining-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="641" alt="Kitchen and dining overview" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/06_kitchen_tv_area.webp" aria-label="View photo: Kitchen and TV area">
-        <img src="images/thumbs/06_kitchen_tv_area-480.webp"
-             srcset="images/thumbs/06_kitchen_tv_area-480.webp 480w, images/thumbs/06_kitchen_tv_area-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="641" alt="Kitchen and TV area" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/07_bedroom1_bed_tv.webp" aria-label="View photo: Master bedroom with TV">
-        <img src="images/thumbs/07_bedroom1_bed_tv-480.webp"
-             srcset="images/thumbs/07_bedroom1_bed_tv-480.webp 480w, images/thumbs/07_bedroom1_bed_tv-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="641" alt="Master bedroom with TV" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/09_bedroom2_metal_bed.webp" aria-label="View photo: Second bedroom">
-        <img src="images/thumbs/09_bedroom2_metal_bed-480.webp"
-             srcset="images/thumbs/09_bedroom2_metal_bed-480.webp 480w, images/thumbs/09_bedroom2_metal_bed-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="642" alt="Second bedroom" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/10_bathroom1_shower.webp" aria-label="View photo: Modern bathroom with walk-in shower">
-        <img src="images/thumbs/10_bathroom1_shower-480.webp"
-             srcset="images/thumbs/10_bathroom1_shower-480.webp 480w, images/thumbs/10_bathroom1_shower-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="641" alt="Modern bathroom with walk-in shower" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/11_bathroom2_toilet.webp" aria-label="View photo: Second bathroom">
-        <img src="images/thumbs/11_bathroom2_toilet-480.webp"
-             srcset="images/thumbs/11_bathroom2_toilet-480.webp 480w, images/thumbs/11_bathroom2_toilet-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="1438" alt="Second bathroom" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/12_hallway_mirror.webp" aria-label="View photo: Hallway with mirror">
-        <img src="images/thumbs/12_hallway_mirror-480.webp"
-             srcset="images/thumbs/12_hallway_mirror-480.webp 480w, images/thumbs/12_hallway_mirror-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="641" alt="Hallway with mirror" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/13_hallway_doors.webp" aria-label="View photo: Hallway and doors">
-        <img src="images/thumbs/13_hallway_doors-480.webp"
-             srcset="images/thumbs/13_hallway_doors-480.webp 480w, images/thumbs/13_hallway_doors-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="641" alt="Hallway and doors" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/14_coffee_machine.webp" aria-label="View photo: Coffee machine in the kitchen">
-        <img src="images/thumbs/14_coffee_machine-480.webp"
-             srcset="images/thumbs/14_coffee_machine-480.webp 480w, images/thumbs/14_coffee_machine-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="641" alt="Coffee machine in the kitchen" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/15_gym_room.webp" aria-label="View photo: Fitness room">
-        <img src="images/thumbs/15_gym_room-480.webp"
-             srcset="images/thumbs/15_gym_room-480.webp 480w, images/thumbs/15_gym_room-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="641" alt="Fitness room" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/16_reading_corner.webp" aria-label="View photo: Reading corner">
-        <img src="images/thumbs/16_reading_corner-480.webp"
-             srcset="images/thumbs/16_reading_corner-480.webp 480w, images/thumbs/16_reading_corner-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="641" alt="Reading corner" loading="lazy" decoding="async">
-      </button>
-    </div>
-    <button class="gallery-more" type="button">Show all 13 photos</button>
-  </div>
-
-  <!-- Outdoor & Terrace -->
-  <div class="gallery-category reveal">
-    <h3 class="gallery-category-label">Outdoor &amp; Terrace</h3>
-    <div class="gallery-grid-uniform">
-      <button class="gallery-item" type="button" data-full="images/19_terrace_chairs.webp" aria-label="View photo: Terrace with outdoor seating">
-        <img src="images/thumbs/19_terrace_chairs-480.webp"
-             srcset="images/thumbs/19_terrace_chairs-480.webp 480w, images/thumbs/19_terrace_chairs-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="1084" alt="Terrace with outdoor seating" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/18_terrace_flowers.webp" aria-label="View photo: Terrace with flowers">
-        <img src="images/thumbs/18_terrace_flowers-480.webp"
-             srcset="images/thumbs/18_terrace_flowers-480.webp 480w, images/thumbs/18_terrace_flowers-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="1339" alt="Terrace with flowers" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/20_terrace_bench.webp" aria-label="View photo: Terrace bench seating">
-        <img src="images/thumbs/20_terrace_bench-480.webp"
-             srcset="images/thumbs/20_terrace_bench-480.webp 480w, images/thumbs/20_terrace_bench-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="825" alt="Terrace bench seating" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/21_patio_picnic.webp" aria-label="View photo: Patio picnic area">
-        <img src="images/thumbs/21_patio_picnic-480.webp"
-             srcset="images/thumbs/21_patio_picnic-480.webp 480w, images/thumbs/21_patio_picnic-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="1457" alt="Patio picnic area" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/22_garden_backyard.webp" aria-label="View photo: Private garden and backyard">
-        <img src="images/thumbs/22_garden_backyard-480.webp"
-             srcset="images/thumbs/22_garden_backyard-480.webp 480w, images/thumbs/22_garden_backyard-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="1145" alt="Private garden and backyard" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/23_house_exterior.webp" aria-label="View photo: Exterior of the house">
-        <img src="images/thumbs/23_house_exterior-480.webp"
-             srcset="images/thumbs/23_house_exterior-480.webp 480w, images/thumbs/23_house_exterior-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="1148" alt="Exterior of the house" loading="lazy" decoding="async">
-      </button>
-    </div>
-  </div>
-
-  <!-- The Surroundings -->
-  <div class="gallery-category reveal" data-collapsible>
-    <h3 class="gallery-category-label">The Surroundings</h3>
-    <div class="gallery-grid-uniform">
-      <button class="gallery-item" type="button" data-full="images/24_mountain_view.webp" aria-label="View photo: Mountain views from the property">
-        <img src="images/thumbs/24_mountain_view-480.webp"
-             srcset="images/thumbs/24_mountain_view-480.webp 480w, images/thumbs/24_mountain_view-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="614" alt="Mountain views from the property" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/25_mountain_field.webp" aria-label="View photo: Open fields with mountain views">
-        <img src="images/thumbs/25_mountain_field-480.webp"
-             srcset="images/thumbs/25_mountain_field-480.webp 480w, images/thumbs/25_mountain_field-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="729" alt="Open fields with mountain views" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/26_area_forest_road.webp" aria-label="View photo: Forest road nearby">
-        <img src="images/thumbs/26_area_forest_road-480.webp"
-             srcset="images/thumbs/26_area_forest_road-480.webp 480w, images/thumbs/26_area_forest_road-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="1280" alt="Forest road nearby" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/27_area_river_bench.webp" aria-label="View photo: Bench by the Savinja River">
-        <img src="images/thumbs/27_area_river_bench-480.webp"
-             srcset="images/thumbs/27_area_river_bench-480.webp 480w, images/thumbs/27_area_river_bench-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="1280" alt="Bench by the Savinja River" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/28_area_river_sunset.webp" aria-label="View photo: Sunset over the river">
-        <img src="images/thumbs/28_area_river_sunset-480.webp"
-             srcset="images/thumbs/28_area_river_sunset-480.webp 480w, images/thumbs/28_area_river_sunset-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="720" alt="Sunset over the river" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/29_area_river_autumn.webp" aria-label="View photo: The Savinja River in autumn">
-        <img src="images/thumbs/29_area_river_autumn-480.webp"
-             srcset="images/thumbs/29_area_river_autumn-480.webp 480w, images/thumbs/29_area_river_autumn-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="461" alt="The Savinja River in autumn" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/30_area_winter_path.webp" aria-label="View photo: Winter path through the fields">
-        <img src="images/thumbs/30_area_winter_path-480.webp"
-             srcset="images/thumbs/30_area_winter_path-480.webp 480w, images/thumbs/30_area_winter_path-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="1280" alt="Winter path through the fields" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/31_area_winter_field.webp" aria-label="View photo: Winter field near the apartment">
-        <img src="images/thumbs/31_area_winter_field-480.webp"
-             srcset="images/thumbs/31_area_winter_field-480.webp 480w, images/thumbs/31_area_winter_field-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="720" alt="Winter field near the apartment" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/32_area_river_walk.webp" aria-label="View photo: Riverside walking path">
-        <img src="images/thumbs/32_area_river_walk-480.webp"
-             srcset="images/thumbs/32_area_river_walk-480.webp 480w, images/thumbs/32_area_river_walk-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="1280" alt="Riverside walking path" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/33_area_river_walk2.webp" aria-label="View photo: Riverside walk along the Savinja">
-        <img src="images/thumbs/33_area_river_walk2-480.webp"
-             srcset="images/thumbs/33_area_river_walk2-480.webp 480w, images/thumbs/33_area_river_walk2-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="540" alt="Riverside walk along the Savinja" loading="lazy" decoding="async">
-      </button>
-      <button class="gallery-item" type="button" data-full="images/34_area_forest_walk.webp" aria-label="View photo: Forest walk near the apartment">
-        <img src="images/thumbs/34_area_forest_walk-480.webp"
-             srcset="images/thumbs/34_area_forest_walk-480.webp 480w, images/thumbs/34_area_forest_walk-960.webp 960w"
-             sizes="(min-width: 1025px) 30vw, (min-width: 481px) 45vw, 90vw"
-             width="960" height="1706" alt="Forest walk near the apartment" loading="lazy" decoding="async">
-      </button>
-    </div>
-    <button class="gallery-more" type="button">Show all 11 photos</button>
-  </div>
-
-  <p class="gallery-note reveal">Select any image to browse the full gallery — use the arrow keys or swipe to move between photos.</p>
-</section>
-
-<!-- ─── AMENITIES ─── -->
-<section id="amenities">
-  <p class="section-label reveal">What's included</p>
-  <h2 class="section-title reveal reveal-delay-1">Everything you need,<br>nothing you don't</h2>
-  <p class="amenities-intro reveal reveal-delay-2">We've thought of every detail so you can arrive, unpack, and instantly feel at home.</p>
-  <div class="amenities-grid">
-    <div class="amenity-card reveal">
-      <div class="amenity-icon" aria-hidden="true">&#128246;</div>
-      <h3 class="amenity-name">High-Speed Wi-Fi</h3>
-      <p class="amenity-desc">Fast, reliable broadband throughout the entire apartment.</p>
-    </div>
-    <div class="amenity-card reveal reveal-delay-1">
-      <div class="amenity-icon" aria-hidden="true">&#127859;</div>
-      <h3 class="amenity-name">Fully Equipped Kitchen</h3>
-      <p class="amenity-desc">Hob, oven, dishwasher and coffee machine — plus basic spices, tea and coffee capsules to get you started.</p>
-    </div>
-    <div class="amenity-card reveal reveal-delay-2">
-      <div class="amenity-icon" aria-hidden="true">&#128716;&#65039;</div>
-      <h3 class="amenity-name">2 Bedrooms</h3>
-      <p class="amenity-desc">Quality mattresses, fresh linen, and ample wardrobe space for the whole family.</p>
-    </div>
-    <div class="amenity-card reveal reveal-delay-3">
-      <div class="amenity-icon" aria-hidden="true">&#128703;</div>
-      <h3 class="amenity-name">2 Bathrooms</h3>
-      <p class="amenity-desc">Two modern bathrooms — walk-in shower, fresh towels, and premium toiletries.</p>
-    </div>
-    <div class="amenity-card reveal">
-      <div class="amenity-icon" aria-hidden="true">&#128293;</div>
-      <h3 class="amenity-name">BBQ &amp; Terrace</h3>
-      <p class="amenity-desc">Private terrace with outdoor seating and a BBQ grill — perfect for summer evenings.</p>
-    </div>
-    <div class="amenity-card reveal reveal-delay-1">
-      <div class="amenity-icon" aria-hidden="true">&#127807;</div>
-      <h3 class="amenity-name">Private Garden</h3>
-      <p class="amenity-desc">A peaceful garden with open countryside views, all to yourself.</p>
-    </div>
-    <div class="amenity-card reveal reveal-delay-2">
-      <div class="amenity-icon" aria-hidden="true">&#127359;&#65039;</div>
-      <h3 class="amenity-name">Free Parking</h3>
-      <p class="amenity-desc">Private off-street parking spot reserved just for you.</p>
-    </div>
-    <div class="amenity-card reveal reveal-delay-3">
-      <div class="amenity-icon" aria-hidden="true">&#127811;</div>
-      <h3 class="amenity-name">Smart Ventilation</h3>
-      <p class="amenity-desc">i-vent heat-recovery system — constant fresh, filtered air without drafts or opening windows. Removes humidity and retains warmth.</p>
-    </div>
-    <div class="amenity-card reveal">
-      <div class="amenity-icon" aria-hidden="true">&#128250;</div>
-      <h3 class="amenity-name">Smart TV</h3>
-      <p class="amenity-desc">Smart TV with Netflix and streaming apps so you can unwind your way.</p>
-    </div>
-    <div class="amenity-card reveal reveal-delay-1">
-      <div class="amenity-icon" aria-hidden="true">&#128705;</div>
-      <h3 class="amenity-name">Linen &amp; Toiletries</h3>
-      <p class="amenity-desc">Fresh towels and bed linen, plus shampoo, shower gel, tissues and a universal travel adapter.</p>
-    </div>
-    <div class="amenity-card reveal reveal-delay-2">
-      <div class="amenity-icon" aria-hidden="true">&#127947;&#65039;</div>
-      <h3 class="amenity-name">Fitness Room</h3>
-      <p class="amenity-desc">A dedicated gym space on the property for your workouts.</p>
-    </div>
-    <div class="amenity-card reveal reveal-delay-3">
-      <div class="amenity-icon" aria-hidden="true">&#128273;</div>
-      <h3 class="amenity-name">Keyless Self Check-in</h3>
-      <p class="amenity-desc">Your own access code, sent on the day you arrive — no keys to collect. Check-in 14:00–21:00.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ─── LOCATION ─── -->
-<section id="location">
-  <div class="location-text">
-    <p class="section-label reveal">Find us</p>
-    <h2 class="section-title reveal reveal-delay-1">In the heart of the<br>Savinja Valley</h2>
-    <p class="reveal reveal-delay-2">
-      We're tucked away on a quiet green street in Šempeter v Savinjski Dolini — a charming town in the Lower Savinja Valley, surrounded by orchards, forests, and the gentle Savinja River.
-    </p>
-    <p class="reveal reveal-delay-3">
-      Perfectly placed for day trips: ancient Roman history, thermal spas, the mystical Hell Cave (Jama Pekel), medieval castles and the famous Beer Fountain of Žalec are all within easy reach.
-    </p>
-    <p class="reveal reveal-delay-3">
-      Šempeter sits in the heart of Slovenia's hop-growing region, so flat, easy cycling routes through the "Green Gold" hop fields and along the Savinja River start right at the door — with rewarding climbs in the surrounding hills if you want them.
-    </p>
-    <div class="location-highlights reveal">
-      <div class="location-item">
-        <div class="location-item-icon" aria-hidden="true">&#128722;</div>
-        <div class="location-item-text">
-          <strong>Shops &amp; bakery — from 550 m</strong>
-          <span>Mercator 550 m, Spar and Bakery Fijavž 850 m — all an easy walk. Lidl, Hofer and Tuš are 3–4 km away in Žalec</span>
-        </div>
-      </div>
-      <div class="location-item">
-        <div class="location-item-icon" aria-hidden="true">&#127866;</div>
-        <div class="location-item-text">
-          <strong>Beer Fountain Žalec — 4 km</strong>
-          <span>The world's first public beer fountain — craft beer on tap</span>
-        </div>
-      </div>
-      <div class="location-item">
-        <div class="location-item-icon" aria-hidden="true">&#127963;&#65039;</div>
-        <div class="location-item-text">
-          <strong>Roman Necropolis — walking distance</strong>
-          <span>Impressive ancient Roman burial site right in town</span>
-        </div>
-      </div>
-      <div class="location-item">
-        <div class="location-item-icon" aria-hidden="true">&#128642;</div>
-        <div class="location-item-text">
-          <strong>Celje Train Station — 14 km</strong>
-          <span>Historic city with a medieval castle; direct trains to Ljubljana</span>
-        </div>
-      </div>
-      <div class="spa-trio">
-        <div class="spa-trio-header">
-          <span class="spa-trio-icon" aria-hidden="true">&#9832;&#65039;</span>
-          <strong>Thermal Spas Nearby</strong>
-        </div>
-        <div class="spa-trio-cards">
-          <div class="spa-card">
-            <div class="spa-card-distance">17 km</div>
-            <div class="spa-card-name">Terme Dobrna</div>
-            <div class="spa-card-detail">19 min &middot; Oldest spa in Slovenia</div>
-          </div>
-          <div class="spa-card">
-            <div class="spa-card-distance">21 km</div>
-            <div class="spa-card-name">Thermana Laško</div>
-            <div class="spa-card-detail">25 min &middot; Modern wellness resort</div>
-          </div>
-          <div class="spa-card">
-            <div class="spa-card-distance">31 km</div>
-            <div class="spa-card-name">Rimske Terme</div>
-            <div class="spa-card-detail">36 min &middot; Roman-era thermal waters</div>
-          </div>
-        </div>
-      </div>
-      <div class="location-item">
-        <div class="location-item-icon" aria-hidden="true">&#9992;&#65039;</div>
-        <div class="location-item-text">
-          <strong>Ljubljana Airport (LJU) — 63 km</strong>
-          <span>About 50 minutes by car from the apartment</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="map-container reveal">
-    <iframe
-      src="https://www.openstreetmap.org/export/embed.html?bbox=15.1040%2C46.2498%2C15.1240%2C46.2598&amp;layer=mapnik&amp;marker=46.2548%2C15.1140"
-      allowfullscreen="" loading="lazy"
-      title="Map showing Green Street Hideaway at Zelena ulica 17, Šempeter v Savinjski Dolini">
-    </iframe>
-    <a class="map-directions"
-       href="https://www.google.com/maps/dir/?api=1&amp;destination=Zelena+ulica+17%2C+3311+%C5%A0empeter+v+Savinjski+Dolini%2C+Slovenia"
-       target="_blank" rel="noopener">Get directions &#8594;</a>
-  </div>
-</section>
-
-<!-- ─── FAQ ─── -->
-<section id="faq">
-  <div class="faq-head">
-    <p class="section-label reveal">Good to know</p>
-    <h2 class="section-title reveal reveal-delay-1">Questions guests often ask</h2>
-    <p class="reveal reveal-delay-2">A few practical details before you book. Anything else — just message us, we're happy to help.</p>
-  </div>
-  <div class="faq-list reveal">
-    <details class="faq-item">
-      <summary>How do I check availability and book?</summary>
-      <div class="faq-answer">
-        Everything — live availability, current rates for your dates, and secure booking — is on our
-        <a href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener">Booking.com listing</a>.
-        It is always kept up to date, so it is the fastest and most reliable way to reserve your stay.
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>How many guests can stay?</summary>
-      <div class="faq-answer">
-        The apartment comfortably sleeps 2 to 5 guests. There are two bedrooms plus a sofa bed in the living area, which makes it a great fit for a family or a small group of friends.
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>Do I get the whole apartment to myself?</summary>
-      <div class="faq-answer">
-        Yes. You have the entire ground-floor apartment — 2 bedrooms, 2 bathrooms, kitchen and living area — plus your own private garden and terrace with a BBQ. Nothing is shared with other guests.
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>What time is check-in and check-out?</summary>
-      <div class="faq-answer">
-        Check-in is between <strong>14:00 and 21:00</strong>, and check-out is <strong>until 11:30</strong>. If your travel plans fall outside those hours, message us — we will do our best to help.
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>How does check-in work?</summary>
-      <div class="faq-answer">
-        It is keyless, so there are no keys to collect and nobody to wait for. You will receive your own personal access code on the day of arrival, together with simple entry instructions. We are always reachable by phone or WhatsApp if you would rather be met in person.
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>Where do I park, and how do I find the entrance?</summary>
-      <div class="faq-answer">
-        A dedicated space in the courtyard is reserved for you, marked with a <strong>"Green Street Parking"</strong> sign — free of charge. From there it is a 20 m walk along the left-hand side of the house; your private entrance is on the right.
-        <figure class="faq-figure">
-          <img src="images/how-to-enter-700.webp"
-               srcset="images/how-to-enter-700.webp 700w, images/how-to-enter.webp 1400w"
-               sizes="(min-width: 769px) 730px, 90vw"
-               width="1400" height="749"
-               alt="Left: the courtyard with the reserved parking space marked and a 20 m route along the left side of the house. Right: the private front door of the apartment."
-               loading="lazy" decoding="async">
-          <figcaption>Park on the left, walk 20 m along the house — your door is on the right.</figcaption>
-        </figure>
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>Are there shops nearby?</summary>
-      <div class="faq-answer">
-        Yes, several within walking distance: Mercator is 550 m away, with Spar and the Fijavž bakery both around 850 m. For a bigger shop, Hofer (3.3 km), Lidl (3.6 km) and Tuš (4.2 km) are a short drive away in Žalec.
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>What is provided in the apartment?</summary>
-      <div class="faq-answer">
-        Fresh bed linen and towels, a fully equipped kitchen (hob, oven, dishwasher and coffee machine), high-speed Wi-Fi, a Smart TV with streaming apps, and access to the fitness room. We also leave you basic spices, tea and extra coffee capsules, toiletries such as shampoo, shower gel, tissues and spare toilet paper, and a universal adapter for international guests. Just bring your bags.
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>Is there a washing machine?</summary>
-      <div class="faq-answer">
-        There's no washing machine in the apartment, but there's a self-service laundromat with washers and dryers nearby: <a href="https://www.google.com/maps/search/?api=1&amp;query=46.2650091,15.1840608" target="_blank" rel="noopener noreferrer">Pralni Kotiček - Pralnica perila Žalec</a>, Arja vas 102, 3301 Petrovče, in the Arnovski gozd business zone. It's 6.8 km away (about 10 minutes by car) and open every day from 6:00 to 23:00. It's cash only: you buy tokens at the machine inside with banknotes or coins, and cards aren't accepted. Phone: <a href="tel:+38669750499">069 750 499</a>.
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>How do I get there from the airport?</summary>
-      <div class="faq-answer">
-        Ljubljana Airport (LJU) is about 63 km away — roughly a 50-minute drive. Celje train station is 14 km away, with direct connections to Ljubljana. A car is the easiest way to explore the valley, and parking here is free.
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>What is there to do nearby?</summary>
-      <div class="faq-answer">
-        Plenty. The Roman Necropolis is within walking distance, the Beer Fountain in Žalec is 4 km away, and three thermal spas — Terme Dobrna, Thermana Laško and Rimske Terme — are all within about 35 minutes by car. The mystical Hell Cave (Jama Pekel), flower parks and medieval castles make easy day trips. Šempeter is also the heart of Slovenia's hop-growing region, so flat cycling routes through the "Green Gold" hop fields and along the Savinja River start right on the doorstep.
-      </div>
-    </details>
-  </div>
+<!-- ─── AT A GLANCE ─── -->
+<section class="glance" aria-label="At a glance">
+  <ul>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M3 21v-3M21 21v-3M5 10V6h14v4"/></svg>2 bedrooms</li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-3zM6 12V5a2 2 0 0 1 4 0"/></svg>2 bathrooms</li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0M16 5a3 3 0 0 1 0 6M21 20a6 6 0 0 0-4-5.6"/></svg>2–5 guests</li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V11M12 11c0-4 3-7 7-7 0 4-3 7-7 7zM12 14c0-3-2.5-5.5-6-5.5 0 3 2.5 5.5 6 5.5zM5 21h14"/></svg>Private garden &amp; terrace</li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/></svg>Free private parking</li>
+    <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Keyless self check-in</li>
+  </ul>
 </section>
 
 <!-- ─── GUEST REVIEWS ─── -->
 <!--
   These are real, verbatim guest reviews from the Booking.com listing.
-  To add more: copy one .review-card block and paste the guest's exact
-  words. Never edit the wording of a review.
+  To add more: copy one <li> block and paste the guest's exact words.
+  Never edit the wording of a review.
 -->
-<section id="reviews">
-  <div class="reviews-head">
-    <p class="section-label reveal">Guest reviews</p>
-    <h2 class="section-title reveal reveal-delay-1">What our guests say</h2>
-    <div class="reviews-score reveal reveal-delay-2">
-      <span class="reviews-score-badge" data-review-score>9.8</span>
-      <span class="reviews-score-text">
-        <strong>Exceptional</strong>
-        <span data-review-count-plain>Based on guest reviews</span>
-      </span>
+<section class="section" id="reviews" aria-labelledby="reviews-title">
+  <div class="wrap reviews">
+    <div class="review-feature reveal">
+      <p class="eyebrow" id="reviews-title">What guests say</p>
+      <figure>
+        <blockquote>“Spacious, beautiful, tastefully decorated and clean apartment. Welcome (chocolate bars and coffee) from the owner.”</blockquote>
+        <figcaption class="review-who" style="margin-top:22px"><strong>Natalija</strong> &middot; Slovenia</figcaption>
+      </figure>
+      <div class="score-line">
+        <span class="score" data-review-score>9.8</span>
+        <span>
+          <strong>Exceptional</strong>
+          <small data-review-count-plain>Based on guest reviews on Booking.com</small>
+        </span>
+      </div>
     </div>
-    <p class="reveal reveal-delay-2">Every review below was left by a real guest who booked through Booking.com.</p>
+    <div class="reveal d1">
+      <ul class="review-list">
+        <li><blockquote>“Very comfortable beds, fully equipped kitchen, quiet area also close to supermarket etc.”</blockquote><span class="review-who"><strong>Edward</strong> &middot; United Kingdom</span></li>
+        <li><blockquote>“Very clean, tidy and comfortable - especially the bed and sofa. Friendly staff. We will be back :)”</blockquote><span class="review-who"><strong>Domen</strong> &middot; Slovenia</span></li>
+        <li><blockquote>“Very spacious and nice apartment in a quiet area. There is a supermarket in walking distance. The host is very nice.”</blockquote><span class="review-who"><strong>Simona</strong> &middot; Romania</span></li>
+        <li><blockquote>“Beautiful accommodation, comfortable and very clean. Equipped with everything you need.”</blockquote><span class="review-who"><strong>Jandric</strong> &middot; Serbia</span></li>
+        <li><blockquote>“Super spacious apartment, clean and tidy, furnished with style.”</blockquote><span class="review-who"><strong>Anja</strong> &middot; Slovenia</span></li>
+      </ul>
+      <p class="review-note">Every review here was left by a real guest who booked through Booking.com.</p>
+      <a class="text-link" href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener">
+        <span data-review-count-link>Read all reviews on Booking.com</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
   </div>
-
-  <div class="reviews-grid">
-    <figure class="review-card reveal">
-      <blockquote>Very comfortable beds, fully equipped kitchen, quiet area also close to supermarket etc.</blockquote>
-      <figcaption>
-        <span class="review-avatar" aria-hidden="true">E</span>
-        <span class="review-who">
-          <strong>Edward</strong>
-          <span>United Kingdom</span>
-        </span>
-      </figcaption>
-    </figure>
-
-    <figure class="review-card reveal reveal-delay-1">
-      <blockquote>Spacious, beautiful, tastefully decorated and clean apartment. Welcome (chocolate bars and coffee) from the owner.</blockquote>
-      <figcaption>
-        <span class="review-avatar" aria-hidden="true">N</span>
-        <span class="review-who">
-          <strong>Natalija</strong>
-          <span>Slovenia</span>
-        </span>
-      </figcaption>
-    </figure>
-
-    <figure class="review-card reveal reveal-delay-2">
-      <blockquote>Very clean, tidy and comfortable - especially the bed and sofa. Friendly staff. We will be back :)</blockquote>
-      <figcaption>
-        <span class="review-avatar" aria-hidden="true">D</span>
-        <span class="review-who">
-          <strong>Domen</strong>
-          <span>Slovenia</span>
-        </span>
-      </figcaption>
-    </figure>
-
-    <figure class="review-card reveal">
-      <blockquote>Very spacious and nice apartment in a quiet area. There is a supermarket in walking distance. The host is very nice.</blockquote>
-      <figcaption>
-        <span class="review-avatar" aria-hidden="true">S</span>
-        <span class="review-who">
-          <strong>Simona</strong>
-          <span>Romania</span>
-        </span>
-      </figcaption>
-    </figure>
-
-    <figure class="review-card reveal reveal-delay-1">
-      <blockquote>Beautiful accommodation, comfortable and very clean. Equipped with everything you need.</blockquote>
-      <figcaption>
-        <span class="review-avatar" aria-hidden="true">J</span>
-        <span class="review-who">
-          <strong>Jandric</strong>
-          <span>Serbia</span>
-        </span>
-      </figcaption>
-    </figure>
-
-    <figure class="review-card reveal reveal-delay-2">
-      <blockquote>Super spacious apartment, clean and tidy, furnished with style.</blockquote>
-      <figcaption>
-        <span class="review-avatar" aria-hidden="true">A</span>
-        <span class="review-who">
-          <strong>Anja</strong>
-          <span>Slovenia</span>
-        </span>
-      </figcaption>
-    </figure>
-  </div>
-
-  <a class="reviews-cta" href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html"
-     target="_blank" rel="noopener" data-review-count-link>Read all reviews on Booking.com &#8594;</a>
 </section>
 
-<!-- ─── CONTACT ─── -->
-<section id="contact">
-  <p class="section-label reveal">Get in touch</p>
-  <h2 class="section-title reveal reveal-delay-1">Ready to book your stay?</h2>
-  <p class="section-subtitle reveal reveal-delay-2">
-    Live availability and rates are always on our Booking.com listing. For anything else — special requests, questions about the area, or help planning your trip — just reach out.
-  </p>
-  <div class="contact-cards">
-    <div class="contact-card booking reveal">
-      <div class="contact-card-icon" aria-hidden="true">&#127976;</div>
-      <h3>Book on Booking.com</h3>
-      <p>See live availability and rates for your dates, read our guest reviews, and reserve securely online.</p>
-      <a href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener" class="card-btn">Check Availability</a>
+<!-- ─── THE APARTMENT ─── -->
+<section id="apartment" aria-labelledby="apartment-title">
+  <div class="wrap">
+    <div class="story">
+      <div class="reveal">
+        <p class="eyebrow">The apartment</p>
+        <h2 class="display" id="apartment-title">Welcome to <em>Zelena ulica</em></h2>
+      </div>
+      <div class="reveal d1">
+        <p class="lede">Green Street Hideaway was born from a passion for renovation and genuine hospitality. In late 2024 we transformed this ground-floor apartment into a warm, modern retreat, ideal for a family of four or a group of friends. The whole place is yours: nothing is shared with other guests.</p>
+        <p class="story-note">“Zelena ulica” means <strong>Green Street</strong> in Slovenian. It’s the street we live on, and where the name was born.</p>
+      </div>
     </div>
-    <div class="contact-card reveal reveal-delay-1">
-      <div class="contact-card-icon" aria-hidden="true">&#9993;&#65039;</div>
-      <h3>Send us an Email</h3>
-      <p>Have a question or a special request? We'll get back to you within a few hours.</p>
-      <a href="mailto:gsha.booking@gmail.com" class="card-btn">Email Us</a>
+
+    <div class="chapters">
+      <!-- 01 Unwind -->
+      <article class="chapter">
+        <div class="chapter-media reveal">
+          <button class="photo h-xl" type="button" data-photo="03">
+            <img src="images/thumbs/03_dining_area-1000.webp"
+                 srcset="images/thumbs/03_dining_area-1000.webp 1000w, images/thumbs/03_dining_area-1600.webp 1600w"
+                 sizes="(min-width: 861px) 58vw, 92vw" width="1600" height="1047"
+                 alt="Glass dining table beside the open-plan kitchen" loading="lazy" decoding="async">
+          </button>
+        </div>
+        <div class="chapter-copy reveal d1">
+          <p class="eyebrow">01 &middot; Unwind</p>
+          <h3 class="display">Room to spread out, <em>together</em></h3>
+          <p class="lede">An open-plan living, dining and kitchen space with a deep sofa (which also becomes a bed) and a fully equipped kitchen with hob, oven, dishwasher and coffee machine. Spices, tea and coffee capsules are waiting for you.</p>
+          <button class="photo inset-photo" type="button" data-photo="14">
+            <img src="images/thumbs/14_coffee_machine-480.webp" width="480" height="320" alt="Coffee machine in the kitchen" loading="lazy" decoding="async">
+          </button>
+        </div>
+      </article>
+
+      <!-- 02 Sleep -->
+      <article class="chapter-stack">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">02 &middot; Sleep</p>
+            <h3 class="display">Two quiet bedrooms, <em>proper beds</em></h3>
+          </div>
+          <p class="lede">Quality mattresses, fresh linen and plenty of wardrobe space, with the countryside quiet outside the window.</p>
+        </div>
+        <div class="photo-grid two reveal d1">
+          <button class="photo h-lg" type="button" data-photo="07">
+            <img src="images/thumbs/07_bedroom1_bed_tv-960.webp"
+                 srcset="images/thumbs/07_bedroom1_bed_tv-480.webp 480w, images/thumbs/07_bedroom1_bed_tv-960.webp 960w, images/07_bedroom1_bed_tv.webp 1200w"
+                 sizes="(min-width: 601px) 46vw, 92vw" width="1200" height="801"
+                 alt="Main bedroom with double bed and TV" loading="lazy" decoding="async">
+          </button>
+          <button class="photo h-lg" type="button" data-photo="09">
+            <img src="images/thumbs/09_bedroom2_metal_bed-960.webp"
+                 srcset="images/thumbs/09_bedroom2_metal_bed-480.webp 480w, images/thumbs/09_bedroom2_metal_bed-960.webp 960w, images/09_bedroom2_metal_bed.webp 1200w"
+                 sizes="(min-width: 601px) 46vw, 92vw" width="1200" height="802"
+                 alt="Second bedroom with metal-frame bed" loading="lazy" decoding="async">
+          </button>
+        </div>
+      </article>
+
+      <!-- 03 Refresh -->
+      <article class="chapter flip">
+        <div class="chapter-media reveal">
+          <button class="photo h-lg" type="button" data-photo="10">
+            <img src="images/thumbs/10_bathroom1_shower-960.webp"
+                 srcset="images/thumbs/10_bathroom1_shower-480.webp 480w, images/thumbs/10_bathroom1_shower-960.webp 960w, images/10_bathroom1_shower.webp 1200w"
+                 sizes="(min-width: 861px) 58vw, 92vw" width="1200" height="801"
+                 alt="Modern bathroom with walk-in shower" loading="lazy" decoding="async">
+          </button>
+        </div>
+        <div class="chapter-copy reveal d1">
+          <p class="eyebrow">03 &middot; Refresh</p>
+          <h3 class="display">Two bathrooms, <em>no queue</em></h3>
+          <p class="lede">A bright walk-in shower, fresh towels, shampoo and shower gel, plus a second bathroom, so mornings stay relaxed.</p>
+        </div>
+      </article>
+
+      <!-- 04 Outside -->
+      <article class="chapter-stack">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">04 &middot; Outside</p>
+            <h3 class="display">Your own garden, <em>lavender and a grill</em></h3>
+          </div>
+          <p class="lede">A covered terrace with lounge chairs, a long table for dinners outdoors and a BBQ for summer evenings, in a peaceful garden that’s all yours.</p>
+        </div>
+        <div class="photo-grid three reveal d1">
+          <button class="photo h-md" type="button" data-photo="19">
+            <img src="images/thumbs/19_terrace_chairs-960.webp" srcset="images/thumbs/19_terrace_chairs-480.webp 480w, images/thumbs/19_terrace_chairs-960.webp 960w"
+                 sizes="(min-width: 601px) 31vw, 92vw" width="960" height="1084" alt="Terrace lounge chairs beside lavender" loading="lazy" decoding="async">
+          </button>
+          <button class="photo h-md" type="button" data-photo="20">
+            <img src="images/thumbs/20_terrace_bench-960.webp" srcset="images/thumbs/20_terrace_bench-480.webp 480w, images/thumbs/20_terrace_bench-960.webp 960w"
+                 sizes="(min-width: 601px) 31vw, 92vw" width="960" height="825" alt="Covered terrace with dining bench and BBQ" loading="lazy" decoding="async">
+          </button>
+          <button class="photo h-md" type="button" data-photo="18">
+            <img src="images/thumbs/18_terrace_flowers-960.webp" srcset="images/thumbs/18_terrace_flowers-480.webp 480w, images/thumbs/18_terrace_flowers-960.webp 960w"
+                 sizes="(min-width: 601px) 31vw, 92vw" width="960" height="1339" alt="Lavender in bloom on the terrace" loading="lazy" decoding="async">
+          </button>
+        </div>
+      </article>
     </div>
-    <div class="contact-card reveal reveal-delay-2">
-      <div class="contact-card-icon" aria-hidden="true">&#128241;</div>
-      <h3>WhatsApp / Call</h3>
-      <p>Prefer to chat? Drop us a message on WhatsApp or give us a quick call.</p>
-      <a href="https://wa.me/38631616002" target="_blank" rel="noopener" class="card-btn">Message Us</a>
+
+    <!-- More of the apartment -->
+    <div class="extras reveal">
+      <div class="extras-head">
+        <h3>Also yours to enjoy</h3>
+        <button class="text-link" type="button" data-photo="01">
+          <span>View all photos</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="photo-grid five">
+        <button class="photo h-sm" type="button" data-photo="04"><img src="images/thumbs/04_kitchen_main-480.webp" width="480" height="320" alt="Fully equipped kitchen" loading="lazy" decoding="async"></button>
+        <button class="photo h-sm" type="button" data-photo="15"><img src="images/thumbs/15_gym_room-480.webp" width="480" height="320" alt="Fitness room" loading="lazy" decoding="async"></button>
+        <button class="photo h-sm" type="button" data-photo="16"><img src="images/thumbs/16_reading_corner-480.webp" width="480" height="320" alt="Reading corner with books" loading="lazy" decoding="async"></button>
+        <button class="photo h-sm" type="button" data-photo="06"><img src="images/thumbs/06_kitchen_tv_area-480.webp" width="480" height="320" alt="Smart TV and kitchen area" loading="lazy" decoding="async"></button>
+        <button class="photo h-sm" type="button" data-photo="21"><img src="images/thumbs/21_patio_picnic-480.webp" width="480" height="728" alt="Patio picnic area in the garden" loading="lazy" decoding="async"></button>
+      </div>
     </div>
   </div>
-  <address class="address-strip reveal">
-    <span aria-hidden="true">&#128205;</span> <strong>Zelena ulica 17</strong>, 3311 Šempeter v Savinjski Dolini, Slovenia
-    &nbsp;&middot;&nbsp;
-    <a href="tel:+38631616002">+386 31 616 002</a>
-    &nbsp;&middot;&nbsp;
-    <a href="mailto:gsha.booking@gmail.com">gsha.booking@gmail.com</a>
-  </address>
+
+  <!-- Amenities -->
+  <div class="wrap section" id="amenities" aria-labelledby="amenities-title">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">What’s included</p>
+        <h2 class="display" id="amenities-title">Everything you need, <em>nothing you don’t</em></h2>
+      </div>
+      <p class="lede">We’ve thought of the details so you can arrive, unpack and feel at home straight away.</p>
+    </div>
+    <div class="amenities reveal d1">
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg><div><h3>High-speed Wi-Fi</h3><p>Fast, reliable broadband throughout the apartment.</p></div></div>
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 7h.01M12 7h.01M8 14h8"/></svg><div><h3>Fully equipped kitchen</h3><p>Hob, oven, dishwasher and coffee machine, plus basic spices, tea and capsules.</p></div></div>
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6M3 18h18M3 21v-3M21 21v-3M5 10V6h14v4"/></svg><div><h3>2 bedrooms + sofa bed</h3><p>Quality mattresses, fresh linen and ample wardrobe space for 2–5 guests.</p></div></div>
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-3zM6 12V5a2 2 0 0 1 4 0"/></svg><div><h3>2 bathrooms</h3><p>Walk-in shower, fresh towels, shampoo, shower gel and tissues.</p></div></div>
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2 3 4 4.5 4 8a4 4 0 0 1-8 0c0-2 1-3 1.5-4M12 21v-6M8 21h8"/></svg><div><h3>BBQ &amp; covered terrace</h3><p>Outdoor seating, a long dining table and a grill for summer evenings.</p></div></div>
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V11M12 11c0-4 3-7 7-7 0 4-3 7-7 7zM12 14c0-3-2.5-5.5-6-5.5 0 3 2.5 5.5 6 5.5zM5 21h14"/></svg><div><h3>Private garden</h3><p>A peaceful garden with open countryside views, all to yourself.</p></div></div>
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/></svg><div><h3>Free parking</h3><p>A private off-street space reserved just for you.</p></div></div>
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h15a3 3 0 1 1-3 3M3 16h7"/></svg><div><h3>Smart ventilation</h3><p>An i-vent heat-recovery system keeps the air fresh and filtered without drafts.</p></div></div>
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg><div><h3>Smart TV</h3><p>Netflix and streaming apps, so you can unwind your way.</p></div></div>
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4v16M18 4v16M3 8h6M15 8h6M3 16h6M15 16h6M9 12h6"/></svg><div><h3>Fitness room</h3><p>A dedicated gym space on the property for your workouts.</p></div></div>
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v5M17 3v5M4 21h16M6 8h12v6a6 6 0 0 1-12 0z"/></svg><div><h3>Universal adapter</h3><p>A travel adapter for international guests, plus spare toilet paper.</p></div></div>
+      <div class="amenity"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><div><h3>Keyless self check-in</h3><p>Your own access code, sent on arrival day. Check-in 14:00–21:00.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICES & BOOKING ─── -->
+<section class="section book" id="book" aria-labelledby="book-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Prices &amp; booking</p>
+        <h2 class="display" id="book-title">Two easy ways <em>to book</em></h2>
+      </div>
+      <p class="lede">See live availability on Booking.com, or message us on WhatsApp to book direct.</p>
+    </div>
+    <div class="book-grid">
+      <div class="book-card reveal">
+        <p class="eyebrow">Book online</p>
+        <h3>Booking.com</h3>
+        <p>Live availability and rates for your dates, instant confirmation and secure payment.</p>
+        <ul class="ticks">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Rated <span data-review-score>9.8</span> Exceptional by verified guests</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Instant confirmation, any length of stay</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>Rates shown for your exact dates</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener">Check availability</a>
+        </div>
+      </div>
+
+      <div class="book-card direct on-dark reveal d1">
+        <p class="eyebrow">Book direct</p>
+        <h3>WhatsApp or email</h3>
+        <div class="prices">
+          <div class="price"><span class="price-amount">€99<small>/ night</small></span><span class="price-label">1–2 nights</span></div>
+          <div class="price best"><span class="price-amount">€85<small>/ night</small></span><span class="price-label">3 nights or more</span></div>
+        </div>
+        <p>Message us your dates and we’ll confirm availability personally.</p>
+        <p class="fine">Direct bookings are available for stays of up to 7 nights. For longer stays, please book through Booking.com.</p>
+        <div class="btn-row">
+          <a class="btn btn-light" href="https://wa.me/38631616002?text=Hi!%20I%27d%20like%20to%20book%20Green%20Street%20Hideaway%20directly.%20My%20dates%20are%3A%20" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+            WhatsApp us
+          </a>
+          <a class="btn btn-ghost" href="mailto:gsha.booking@gmail.com?subject=Direct%20booking%20enquiry">Email us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── YOUR DAYS HERE ─── -->
+<section class="section days on-dark" id="days" aria-labelledby="days-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Your days here</p>
+        <h2 class="display" id="days-title">River walks, hop fields and <em>Alpine air</em></h2>
+      </div>
+      <p class="lede">Šempeter sits in the heart of Slovenia’s hop-growing region. Flat cycling routes through the “green gold” hop fields and along the Savinja River start at the door.</p>
+    </div>
+    <div class="days-grid">
+      <article class="day reveal">
+        <button class="photo" type="button" data-photo="28"><img src="images/thumbs/28_area_river_sunset-960.webp" srcset="images/thumbs/28_area_river_sunset-480.webp 480w, images/thumbs/28_area_river_sunset-960.webp 960w" sizes="(min-width: 1101px) 23vw, (min-width: 601px) 46vw, 92vw" width="960" height="720" alt="Sunset over the Savinja River" loading="lazy" decoding="async"></button>
+        <h3>Savinja at sunset</h3>
+        <p>Warm summer evenings on the river stones.</p>
+      </article>
+      <article class="day reveal d1">
+        <button class="photo" type="button" data-photo="33"><img src="images/thumbs/33_area_river_walk2-960.webp" srcset="images/thumbs/33_area_river_walk2-480.webp 480w, images/thumbs/33_area_river_walk2-960.webp 960w" sizes="(min-width: 1101px) 23vw, (min-width: 601px) 46vw, 92vw" width="960" height="540" alt="Walkers on the riverside path along the Savinja" loading="lazy" decoding="async"></button>
+        <h3>Riverside paths</h3>
+        <p>Walking and cycling routes along the water and through the hop fields.</p>
+      </article>
+      <article class="day reveal d2">
+        <button class="photo" type="button" data-photo="26"><img src="images/thumbs/26_area_forest_road-960.webp" srcset="images/thumbs/26_area_forest_road-480.webp 480w, images/thumbs/26_area_forest_road-960.webp 960w" sizes="(min-width: 1101px) 23vw, (min-width: 601px) 46vw, 92vw" width="960" height="1280" alt="Forest road in autumn colours" loading="lazy" decoding="async"></button>
+        <h3>Golden autumns</h3>
+        <p>Forest trails turn gold in October, with crisp, clear winter days to follow.</p>
+      </article>
+      <article class="day reveal d3">
+        <button class="photo" type="button" data-photo="24"><img src="images/thumbs/24_mountain_view-960.webp" srcset="images/thumbs/24_mountain_view-480.webp 480w, images/thumbs/24_mountain_view-960.webp 960w" sizes="(min-width: 1101px) 23vw, (min-width: 601px) 46vw, 92vw" width="960" height="614" alt="Mountain views over green fields" loading="lazy" decoding="async"></button>
+        <h3>Mountain views</h3>
+        <p>Open fields and the Alps on the horizon, right from the neighbourhood.</p>
+      </article>
+    </div>
+    <ul class="nearby reveal">
+      <li><span>Roman Necropolis</span><span>Walking distance</span></li>
+      <li><span>Beer Fountain, Žalec</span><span>4 km</span></li>
+      <li><span>Hell Cave (Jama Pekel)</span><span>Easy day trip</span></li>
+      <li><span>Terme Dobrna, Slovenia’s oldest spa</span><span>17 km &middot; 19 min</span></li>
+      <li><span>Thermana Laško wellness resort</span><span>21 km &middot; 25 min</span></li>
+      <li><span>Rimske Terme, Roman-era waters</span><span>31 km &middot; 36 min</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ─── LOCATION ─── -->
+<section class="section" id="location" aria-labelledby="location-title">
+  <div class="wrap location">
+    <div class="location-copy reveal">
+      <p class="eyebrow">Getting here</p>
+      <h2 class="display" id="location-title">Central, yet <em>properly quiet</em></h2>
+      <p class="lede">We’re tucked away on a quiet green street in Šempeter v Savinjski Dolini, surrounded by orchards, forests and the Savinja River.</p>
+      <dl class="distances">
+        <dt>Mercator supermarket</dt><dd>550 m</dd>
+        <dt>Spar &amp; Fijavž bakery</dt><dd>850 m</dd>
+        <dt>Celje train station</dt><dd>14 km</dd>
+        <dt>Ljubljana Airport (LJU)</dt><dd>63 km &middot; 50 min</dd>
+        <dt>Parking</dt><dd>Free, private</dd>
+      </dl>
+      <address><strong>Zelena ulica 17</strong>, 3311 Šempeter v Savinjski Dolini, Slovenia</address>
+      <div class="btn-row">
+        <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=Zelena+ulica+17%2C+3311+%C5%A0empeter+v+Savinjski+Dolini%2C+Slovenia" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+    <div class="map reveal d1" id="map">
+      <div class="map-facade">
+        <span class="map-pin" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+        <strong>Green Street Hideaway</strong>
+        <small>Šempeter v Savinjski Dolini</small>
+        <button class="btn btn-primary" type="button" id="mapLoad">Show interactive map</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:0">
+  <div class="wrap faq">
+    <div class="faq-intro reveal">
+      <p class="eyebrow">Good to know</p>
+      <h2 class="display" id="faq-title">Questions guests <em>often ask</em></h2>
+      <p class="lede">A few practical details before you book. Anything else? Just message us, we’re happy to help.</p>
+      <div class="btn-row"><a class="btn btn-outline" href="https://wa.me/38631616002" target="_blank" rel="noopener">Ask on WhatsApp</a></div>
+    </div>
+    <div class="faq-list reveal d1">
+      <details class="faq-item">
+        <summary>How do I check availability and book?</summary>
+        <div class="faq-answer">
+          Live availability, rates for your dates and secure booking are on our
+          <a href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener">Booking.com listing</a>.
+          You can also book direct by <a href="https://wa.me/38631616002" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:gsha.booking@gmail.com">email</a>: <strong>€99 per night</strong>, or <strong>€85 per night for stays of 3 nights or more</strong>, for stays of up to 7 nights.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How many guests can stay?</summary>
+        <div class="faq-answer">
+          The apartment comfortably sleeps 2 to 5 guests. There are two bedrooms plus a sofa bed in the living area, which makes it a great fit for a family or a small group of friends.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I get the whole apartment to myself?</summary>
+        <div class="faq-answer">
+          Yes. You have the entire ground-floor apartment — 2 bedrooms, 2 bathrooms, kitchen and living area — plus your own private garden and terrace with a BBQ. Nothing is shared with other guests.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What time is check-in and check-out?</summary>
+        <div class="faq-answer">
+          Check-in is between <strong>14:00 and 21:00</strong>, and check-out is <strong>until 11:30</strong>. If your travel plans fall outside those hours, message us — we will do our best to help.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How does check-in work?</summary>
+        <div class="faq-answer">
+          It is keyless, so there are no keys to collect and nobody to wait for. You will receive your own personal access code on the day of arrival, together with simple entry instructions. We are always reachable by phone or WhatsApp if you would rather be met in person.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Where do I park, and how do I find the entrance?</summary>
+        <div class="faq-answer">
+          A dedicated space in the courtyard is reserved for you, marked with a <strong>"Green Street Parking"</strong> sign — free of charge. From there it is a 20 m walk along the left-hand side of the house; your private entrance is on the right.
+          <figure class="faq-figure">
+            <img src="images/how-to-enter-700.webp"
+                 srcset="images/how-to-enter-700.webp 700w, images/how-to-enter.webp 1400w"
+                 sizes="(min-width: 861px) 680px, 92vw"
+                 width="1400" height="749"
+                 alt="Left: the courtyard with the reserved parking space marked and a 20 m route along the left side of the house. Right: the private front door of the apartment."
+                 loading="lazy" decoding="async">
+            <figcaption>Park on the left, walk 20 m along the house — your door is on the right.</figcaption>
+          </figure>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Are there shops nearby?</summary>
+        <div class="faq-answer">
+          Yes, several within walking distance: Mercator is 550 m away, with Spar and the Fijavž bakery both around 850 m. For a bigger shop, Hofer (3.3 km), Lidl (3.6 km) and Tuš (4.2 km) are a short drive away in Žalec.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What is provided in the apartment?</summary>
+        <div class="faq-answer">
+          Fresh bed linen and towels, a fully equipped kitchen (hob, oven, dishwasher and coffee machine), high-speed Wi-Fi, a Smart TV with streaming apps, and access to the fitness room. We also leave you basic spices, tea and extra coffee capsules, toiletries such as shampoo, shower gel, tissues and spare toilet paper, and a universal adapter for international guests. Just bring your bags.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>Is there a washing machine?</summary>
+        <div class="faq-answer">
+          There's no washing machine in the apartment, but there's a self-service laundromat with washers and dryers nearby: <a href="https://www.google.com/maps/search/?api=1&amp;query=46.2650091,15.1840608" target="_blank" rel="noopener noreferrer">Pralni Kotiček - Pralnica perila Žalec</a>, Arja vas 102, 3301 Petrovče, in the Arnovski gozd business zone. It's 6.8 km away (about 10 minutes by car) and open every day from 6:00 to 23:00. It's cash only: you buy tokens at the machine inside with banknotes or coins, and cards aren't accepted. Phone: <a href="tel:+38669750499">069 750 499</a>.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I get there from the airport?</summary>
+        <div class="faq-answer">
+          Ljubljana Airport (LJU) is about 63 km away — roughly a 50-minute drive. Celje train station is 14 km away, with direct connections to Ljubljana. A car is the easiest way to explore the valley, and parking here is free.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>What is there to do nearby?</summary>
+        <div class="faq-answer">
+          Plenty. The Roman Necropolis is within walking distance, the Beer Fountain in Žalec is 4 km away, and three thermal spas — Terme Dobrna, Thermana Laško and Rimske Terme — are all within about 35 minutes by car. The mystical Hell Cave (Jama Pekel), flower parks and medieval castles make easy day trips. Šempeter is also the heart of Slovenia's hop-growing region, so flat cycling routes through the "Green Gold" hop fields and along the Savinja River start right on the doorstep.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CLOSING CTA ─── -->
+<section class="closing" aria-labelledby="closing-title">
+  <img src="images/thumbs/20_terrace_bench-960.webp" width="960" height="825" alt="" loading="lazy" decoding="async">
+  <div class="wrap">
+    <h2 id="closing-title">Your garden <em>is waiting</em></h2>
+    <p>Check dates and book securely on Booking.com, or message us to book direct.</p>
+    <div class="btn-row">
+      <a class="btn btn-light" href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener">Check availability</a>
+      <a class="btn btn-ghost" href="https://wa.me/38631616002" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </div>
 </section>
 
 </main>
 
 <!-- ─── FOOTER ─── -->
-<footer>
-  <span class="footer-logo">Green Street <span>Hideaway</span></span>
-  <p>Zelena ulica 17, 3311 Šempeter v Savinjski Dolini, Slovenia</p>
-  <p style="margin-top:0.4rem">
-    <a href="tel:+38631616002">+386 31 616 002</a>
-    &nbsp;&middot;&nbsp;
-    <a href="mailto:gsha.booking@gmail.com">gsha.booking@gmail.com</a>
-  </p>
-  <hr class="footer-divider">
-  <p style="opacity:0.5;">&copy; <span id="footerYear">2026</span> Green Street Hideaway. All rights reserved.</p>
+<footer class="site-footer on-dark">
+  <div class="wrap footer-grid">
+    <div>
+      <a href="#top" class="brand"><span class="brand-name">Green Street</span><span class="brand-sub">Hideaway</span></a>
+      <address>Zelena ulica 17, 3311 Šempeter v Savinjski Dolini, Slovenia</address>
+    </div>
+    <div>
+      <h2>Contact</h2>
+      <ul>
+        <li><a href="tel:+38631616002">+386 31 616 002</a></li>
+        <li><a href="mailto:gsha.booking@gmail.com">gsha.booking@gmail.com</a></li>
+        <li><a href="https://wa.me/38631616002" target="_blank" rel="noopener">WhatsApp</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Explore</h2>
+      <ul>
+        <li><a href="#apartment">The apartment</a></li>
+        <li><a href="#book">Prices &amp; booking</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener">Booking.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-base">&copy; <span id="footerYear">2026</span> Green Street Hideaway. All rights reserved.</div>
 </footer>
 
-<!-- ─── STICKY MOBILE BOOKING BAR ─── -->
-<div class="mobile-cta" id="mobileCta">
-  <div class="mobile-cta-text">
+<!-- ─── STICKY PHONE BOOKING BAR ─── -->
+<div class="book-bar" id="bookBar">
+  <div class="book-bar-text">
     <strong><span data-review-score>9.8</span> Exceptional</strong>
-    Live availability on Booking.com
+    <small>Direct from €85</small>
   </div>
-  <a class="btn-primary" href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html"
-     target="_blank" rel="noopener">Check dates</a>
+  <a class="icon-btn" href="https://wa.me/38631616002" target="_blank" rel="noopener" aria-label="Message us on WhatsApp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+  </a>
+  <a class="btn btn-primary" href="https://www.booking.com/hotel/si/green-street-hideaway.en-gb.html" target="_blank" rel="noopener">Check dates</a>
 </div>
-
-<!-- ─── BACK TO TOP ─── -->
-<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">&#8593;</button>
 
 <!-- ─── LIGHTBOX ─── -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo gallery" hidden>
-  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close gallery">&#10005;</button>
-  <button class="lightbox-nav" id="lightboxPrev" type="button" aria-label="Previous photo">&#8249;</button>
-  <button class="lightbox-nav" id="lightboxNext" type="button" aria-label="Next photo">&#8250;</button>
-  <img src="" alt="" id="lightboxImg">
-  <p class="lightbox-caption" id="lightboxCaption"></p>
-  <div class="lightbox-counter" id="lightboxCounter" aria-live="polite"></div>
+  <span class="lb-count" id="lbCount" aria-live="polite"></span>
+  <figure>
+    <img alt="" id="lbImg">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close gallery"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next photo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
 </div>
 
 <script>
@@ -1869,212 +1158,187 @@
   var REVIEW_SCORE = '9.8';
   var REVIEW_COUNT = 38;
 
-  document.querySelectorAll('[data-review-score]').forEach(function (el) {
-    el.textContent = REVIEW_SCORE;
-  });
-  document.querySelectorAll('[data-review-count-text]').forEach(function (el) {
-    el.textContent = REVIEW_COUNT + ' reviews on Booking.com';
-  });
-  document.querySelectorAll('[data-review-count-plain]').forEach(function (el) {
-    el.textContent = 'Based on ' + REVIEW_COUNT + ' guest reviews';
-  });
-  document.querySelectorAll('[data-review-count-link]').forEach(function (el) {
-    el.textContent = 'Read all ' + REVIEW_COUNT + ' reviews on Booking.com →';
-  });
+  document.querySelectorAll('[data-review-score]').forEach(function (el) { el.textContent = REVIEW_SCORE; });
+  document.querySelectorAll('[data-review-count-text]').forEach(function (el) { el.textContent = REVIEW_COUNT + ' reviews on Booking.com'; });
+  document.querySelectorAll('[data-review-count-plain]').forEach(function (el) { el.textContent = 'Based on ' + REVIEW_COUNT + ' guest reviews on Booking.com'; });
+  document.querySelectorAll('[data-review-count-link]').forEach(function (el) { el.textContent = 'Read all ' + REVIEW_COUNT + ' reviews on Booking.com'; });
 
-  // ─── Footer year ───
   document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-  // ─── Scroll-driven UI: progress bar, navbar, sticky CTA, back-to-top, scrollspy ───
-  var scrollProgress = document.getElementById('scrollProgress');
-  var navbar         = document.getElementById('navbar');
-  var mobileCta      = document.getElementById('mobileCta');
-  var backToTop      = document.getElementById('backToTop');
-  var navAnchors     = Array.prototype.slice.call(
-                         document.querySelectorAll('#navLinksDesktop a[href^="#"]'));
-  var sections       = navAnchors
-                         .map(function (a) { return document.querySelector(a.getAttribute('href')); })
-                         .filter(Boolean);
+  // ─── Photo library for the lightbox (gallery order) ───
+  var PHOTOS = [
+    ['01', '01_living_room_main', 'The open-plan living and dining room'],
+    ['03', '03_dining_area', 'Dining table beside the open kitchen'],
+    ['05', '05_kitchen_dining', 'Kitchen and dining overview'],
+    ['04', '04_kitchen_main', 'Fully equipped kitchen'],
+    ['14', '14_coffee_machine', 'Coffee machine in the kitchen'],
+    ['06', '06_kitchen_tv_area', 'Smart TV and kitchen area'],
+    ['07', '07_bedroom1_bed_tv', 'Main bedroom with double bed'],
+    ['09', '09_bedroom2_metal_bed', 'Second bedroom'],
+    ['10', '10_bathroom1_shower', 'Bathroom with walk-in shower'],
+    ['11', '11_bathroom2_toilet', 'Second bathroom'],
+    ['12', '12_hallway_mirror', 'Hallway with mirror'],
+    ['13', '13_hallway_doors', 'Hallway and doors'],
+    ['16', '16_reading_corner', 'Reading corner'],
+    ['15', '15_gym_room', 'Fitness room'],
+    ['19', '19_terrace_chairs', 'Terrace lounge chairs beside lavender'],
+    ['20', '20_terrace_bench', 'Covered terrace with dining bench'],
+    ['17', '17_terrace_grill', 'Terrace with BBQ grill'],
+    ['18', '18_terrace_flowers', 'Lavender in bloom on the terrace'],
+    ['21', '21_patio_picnic', 'Patio picnic area'],
+    ['22', '22_garden_backyard', 'Private garden'],
+    ['23', '23_house_exterior', 'The house and private entrance'],
+    ['24', '24_mountain_view', 'Mountain views from the neighbourhood'],
+    ['25', '25_mountain_field', 'Open fields with mountain views'],
+    ['28', '28_area_river_sunset', 'Sunset over the Savinja River'],
+    ['27', '27_area_river_bench', 'Bench by the Savinja River'],
+    ['32', '32_area_river_walk', 'Riverside walking path'],
+    ['33', '33_area_river_walk2', 'Riverside walk along the Savinja'],
+    ['29', '29_area_river_autumn', 'The Savinja River in autumn'],
+    ['26', '26_area_forest_road', 'Forest road in autumn'],
+    ['34', '34_area_forest_walk', 'Forest walk near the apartment'],
+    ['30', '30_area_winter_path', 'Winter path through the fields'],
+    ['31', '31_area_winter_field', 'Winter field near the apartment']
+  ];
+
+  // ─── Header: transparent over the hero, solid after ───
+  var header  = document.getElementById('siteHeader');
+  var bookBar = document.getElementById('bookBar');
+  var hero    = document.getElementById('top');
+  var navAnchors = Array.prototype.slice.call(document.querySelectorAll('#navLinks a'));
+  var spySections = navAnchors.map(function (a) { return document.querySelector(a.getAttribute('href')); });
   var ticking = false;
 
   function onScrollFrame() {
-    var y         = window.scrollY;
-    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var y = window.scrollY;
+    header.classList.toggle('is-solid', y > 40);
+    var pastHero = y > hero.offsetHeight * 0.85;
+    bookBar.classList.toggle('visible', pastHero);
+    document.body.classList.toggle('has-book-bar', pastHero);
 
-    scrollProgress.style.width = (docHeight > 0 ? (y / docHeight) * 100 : 0) + '%';
-    navbar.classList.toggle('scrolled', y > 60);
-    backToTop.classList.toggle('visible', y > 800);
-
-    // Sticky booking bar appears once the hero is behind us.
-    var past = y > window.innerHeight * 0.9;
-    mobileCta.classList.toggle('visible', past);
-    document.body.classList.toggle('has-mobile-cta', past);
-
-    // Scrollspy: highlight whichever section is currently in view.
-    var current = null;
-    for (var i = 0; i < sections.length; i++) {
-      if (sections[i].getBoundingClientRect().top <= 140) current = sections[i];
-    }
-    navAnchors.forEach(function (a) {
-      a.classList.toggle('is-active',
-        current !== null && a.getAttribute('href') === '#' + current.id);
+    // Scrollspy: the in-view section is the one whose top most recently passed under the header.
+    var current = null, best = -Infinity;
+    spySections.forEach(function (s) {
+      if (!s) return;
+      var top = s.getBoundingClientRect().top;
+      if (top <= 140 && top > best) { best = top; current = s; }
     });
-
+    navAnchors.forEach(function (a) {
+      a.classList.toggle('is-active', current !== null && a.getAttribute('href') === '#' + current.id);
+    });
     ticking = false;
   }
-
   window.addEventListener('scroll', function () {
     if (!ticking) { ticking = true; window.requestAnimationFrame(onScrollFrame); }
   }, { passive: true });
   onScrollFrame();
 
-  backToTop.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  // ─── Mobile navigation ───
-  var hamburger = document.getElementById('navHamburger');
-  var mobileNav = document.getElementById('mobileNavOverlay');
-
-  function setMobileNav(open) {
-    mobileNav.classList.toggle('open', open);
-    hamburger.classList.toggle('open', open);
-    hamburger.setAttribute('aria-expanded', String(open));
-    hamburger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  // ─── Mobile menu ───
+  var menu = document.getElementById('mobileMenu');
+  var menuBtn = document.getElementById('menuBtn');
+  var menuClose = document.getElementById('menuClose');
+  function setMenu(open) {
+    menu.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
     document.body.style.overflow = open ? 'hidden' : '';
-    if (open) {
-      var first = mobileNav.querySelector('a');
-      if (first) first.focus();
-    } else {
-      hamburger.focus();
-    }
+    (open ? menuClose : menuBtn).focus();
   }
-
-  hamburger.addEventListener('click', function () {
-    setMobileNav(!mobileNav.classList.contains('open'));
-  });
-  mobileNav.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () { setMobileNav(false); });
-  });
+  menuBtn.addEventListener('click', function () { setMenu(true); });
+  menuClose.addEventListener('click', function () { setMenu(false); });
+  menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
 
   // ─── Scroll reveal ───
-  var revealElements = document.querySelectorAll('.reveal');
+  var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    revealElements.forEach(function (el) { revealObserver.observe(el); });
+    reveals.forEach(function (el) { io.observe(el); });
   } else {
-    revealElements.forEach(function (el) { el.classList.add('visible'); });
+    reveals.forEach(function (el) { el.classList.add('visible'); });
   }
 
-  // ─── Gallery "show all" toggles (small screens only) ───
-  document.querySelectorAll('.gallery-category[data-collapsible]').forEach(function (cat) {
-    var btn = cat.querySelector('.gallery-more');
-    if (!btn) return;
-    var total = cat.querySelectorAll('.gallery-item').length;
-    cat.classList.add('is-collapsed');
-    btn.addEventListener('click', function () {
-      var collapsed = cat.classList.toggle('is-collapsed');
-      btn.textContent = collapsed ? 'Show all ' + total + ' photos' : 'Show fewer photos';
+  // ─── Map: load the interactive map only when asked ───
+  document.getElementById('mapLoad').addEventListener('click', function () {
+    var map = document.getElementById('map');
+    var frame = document.createElement('iframe');
+    frame.src = 'https://www.openstreetmap.org/export/embed.html?bbox=15.1040%2C46.2498%2C15.1240%2C46.2598&layer=mapnik&marker=46.2548%2C15.1140';
+    frame.title = 'Map showing Green Street Hideaway at Zelena ulica 17, Šempeter v Savinjski Dolini';
+    frame.setAttribute('allowfullscreen', '');
+    map.innerHTML = '';
+    map.appendChild(frame);
+    frame.focus();
+  });
+
+  // ─── Lightbox ───
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg');
+  var lbCap = document.getElementById('lbCap');
+  var lbCount = document.getElementById('lbCount');
+  var lbClose = document.getElementById('lbClose');
+  var lbPrev = document.getElementById('lbPrev');
+  var lbNext = document.getElementById('lbNext');
+  var index = 0, lastFocus = null;
+
+  function srcOf(i) { return 'images/' + PHOTOS[i][1] + '.webp'; }
+  function preload(i) { var im = new Image(); im.src = srcOf((i + PHOTOS.length) % PHOTOS.length); }
+  function show(i) {
+    index = (i + PHOTOS.length) % PHOTOS.length;
+    lbImg.src = srcOf(index);
+    lbImg.alt = PHOTOS[index][2];
+    lbCap.textContent = PHOTOS[index][2];
+    lbCount.textContent = (index + 1) + ' / ' + PHOTOS.length;
+    preload(index + 1); preload(index - 1);
+  }
+  function openLb(i) {
+    lastFocus = document.activeElement;
+    lb.hidden = false;
+    show(i);
+    void lb.offsetWidth;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    window.setTimeout(function () { lb.hidden = true; }, 300);
+    if (lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll('[data-photo]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var key = el.getAttribute('data-photo');
+      var i = 0;
+      for (var k = 0; k < PHOTOS.length; k++) { if (PHOTOS[k][0] === key) { i = k; break; } }
+      openLb(i);
     });
   });
-
-  // ─── Gallery lightbox ───
-  var tiles         = Array.prototype.slice.call(document.querySelectorAll('.gallery-item'));
-  var lightbox      = document.getElementById('lightbox');
-  var lightboxImg   = document.getElementById('lightboxImg');
-  var lightboxCap   = document.getElementById('lightboxCaption');
-  var lightboxCount = document.getElementById('lightboxCounter');
-  var lightboxClose = document.getElementById('lightboxClose');
-  var lightboxPrev  = document.getElementById('lightboxPrev');
-  var lightboxNext  = document.getElementById('lightboxNext');
-  var currentIndex  = 0;
-  var lastFocused   = null;
-
-  function fullSrc(tile) {
-    return tile.getAttribute('data-full') || tile.querySelector('img').src;
-  }
-  function captionOf(tile) {
-    return tile.querySelector('img').alt || '';
-  }
-  function preload(index) {
-    var t = tiles[(index + tiles.length) % tiles.length];
-    if (t) { var i = new Image(); i.src = fullSrc(t); }
-  }
-
-  function show(index) {
-    currentIndex = (index + tiles.length) % tiles.length;
-    var tile = tiles[currentIndex];
-    lightboxImg.src = fullSrc(tile);
-    lightboxImg.alt = captionOf(tile);
-    lightboxCap.textContent = captionOf(tile);
-    lightboxCount.textContent = (currentIndex + 1) + ' / ' + tiles.length;
-    preload(currentIndex + 1);
-    preload(currentIndex - 1);
-  }
-
-  function openLightbox(index) {
-    lastFocused = document.activeElement;
-    lightbox.hidden = false;
-    show(index);
-    // force a reflow so the CSS transition actually runs
-    void lightbox.offsetWidth;
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    lightboxClose.focus();
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-    window.setTimeout(function () { lightbox.hidden = true; }, 350);
-    if (lastFocused) lastFocused.focus();
-  }
-
-  tiles.forEach(function (tile, i) {
-    tile.addEventListener('click', function () { openLightbox(i); });
-  });
-  lightboxPrev.addEventListener('click', function () { show(currentIndex - 1); });
-  lightboxNext.addEventListener('click', function () { show(currentIndex + 1); });
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', function (e) {
-    if (e.target === lightbox) closeLightbox();
-  });
+  lbPrev.addEventListener('click', function () { show(index - 1); });
+  lbNext.addEventListener('click', function () { show(index + 1); });
+  lbClose.addEventListener('click', closeLb);
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.tagName === 'FIGURE') closeLb(); });
 
   document.addEventListener('keydown', function (e) {
-    // Escape also closes the mobile menu
-    if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-      setMobileNav(false);
-      return;
-    }
-    if (lightbox.hidden) return;
-    if (e.key === 'Escape')     { closeLightbox(); }
-    if (e.key === 'ArrowLeft')  { show(currentIndex - 1); }
-    if (e.key === 'ArrowRight') { show(currentIndex + 1); }
+    if (e.key === 'Escape' && menu.classList.contains('open')) { setMenu(false); return; }
+    if (lb.hidden) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') show(index - 1);
+    if (e.key === 'ArrowRight') show(index + 1);
     if (e.key === 'Tab') {
-      // keep keyboard focus inside the dialog
-      var focusables = [lightboxClose, lightboxPrev, lightboxNext];
-      var i = focusables.indexOf(document.activeElement);
+      var f = [lbClose, lbPrev, lbNext];
+      var at = f.indexOf(document.activeElement);
       e.preventDefault();
-      var next = e.shiftKey ? i - 1 : i + 1;
-      focusables[(next + focusables.length) % focusables.length].focus();
+      f[((e.shiftKey ? at - 1 : at + 1) + f.length) % f.length].focus();
     }
   });
 
-  // Swipe between photos on touch devices
-  var touchStartX = 0;
-  lightbox.addEventListener('touchstart', function (e) {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-  lightbox.addEventListener('touchend', function (e) {
-    var diff = e.changedTouches[0].screenX - touchStartX;
-    if (Math.abs(diff) > 50) show(currentIndex + (diff > 0 ? -1 : 1));
+  var touchX = 0;
+  lb.addEventListener('touchstart', function (e) { touchX = e.changedTouches[0].screenX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    var d = e.changedTouches[0].screenX - touchX;
+    if (Math.abs(d) > 50) show(index + (d > 0 ? -1 : 1));
   }, { passive: true });
 })();
 </script>
@@ -2087,15 +1351,18 @@
   "@id": "https://green-street-hideaway.github.io/welcome/#lodging",
   "name": "Green Street Hideaway",
   "url": "https://green-street-hideaway.github.io/welcome/",
-  "description": "A lovingly renovated ground-floor holiday apartment in Šempeter v Savinjski Dolini, Slovenia. Two bedrooms, two bathrooms, a private garden and terrace with BBQ, free parking and self check-in.",
+  "description": "A renovated ground-floor holiday apartment in Šempeter v Savinjski Dolini, Slovenia. Two bedrooms, two bathrooms, a private garden and terrace with BBQ, free parking and self check-in.",
   "image": [
     "https://green-street-hideaway.github.io/welcome/images/og-image.jpg",
+    "https://green-street-hideaway.github.io/welcome/images/hero/living-2400.webp",
     "https://green-street-hideaway.github.io/welcome/images/03_dining_area.webp",
-    "https://green-street-hideaway.github.io/welcome/images/22_garden_backyard.webp"
+    "https://green-street-hideaway.github.io/welcome/images/19_terrace_chairs.webp"
   ],
   "logo": "https://green-street-hideaway.github.io/welcome/images/icon-512.png",
   "telephone": "+386 31 616 002",
   "email": "gsha.booking@gmail.com",
+  "priceRange": "€85–€99 per night",
+  "currenciesAccepted": "EUR",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Zelena ulica 17",
@@ -2147,7 +1414,7 @@
       "name": "How do I check availability and book?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Live availability, current rates for your dates and secure booking are all on our Booking.com listing, which is always kept up to date."
+        "text": "Live availability, rates for your dates and secure booking are on our Booking.com listing. You can also book direct by WhatsApp or email: €99 per night, or €85 per night for stays of 3 nights or more, for stays of up to 7 nights."
       }
     },
     {
